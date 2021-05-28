@@ -9,6 +9,7 @@ import control.ControllerAdministrador;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import modelo.BaseDatos;
 import modelo.administrator;
@@ -145,24 +146,24 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        validarUser();
+//        validarUser();
 
-//       LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado(jTextField1.getText(), jPasswordField1.getText());
-// 
-//        if (jTextField1.getText().equals("root") && jPasswordField1.getText().equals("root")) {
-//            JOptionPane.showMessageDialog(this, "Bienvenido root");
-//            MenuPrincipal ventana = new MenuPrincipal();
-//            ventana.setVisible(true);
-//            this.dispose();
-//        } else if (lc.equals("usuario encontrado")) {
-//            LinkedList<administrator> busquedanombre = metodos.BuscarAdministrator(jTextField1.getText());
-//            JOptionPane.showMessageDialog(this, "Bienvenido (a) /n" + busquedanombre);
-//            MenuPrincipal ventana = new MenuPrincipal();
-//            ventana.setVisible(true);
-//            this.dispose();
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Usuario no resgitrado");
-//        }
+       LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado(jTextField1.getText(), jPasswordField1.getText());
+ 
+        if (jTextField1.getText().equals("root") && jPasswordField1.getText().equals("root")) {
+            JOptionPane.showMessageDialog(this, "Bienvenido root");
+            MenuPrincipal ventana = new MenuPrincipal();
+            ventana.setVisible(true);
+            this.dispose();
+        } else if (lc.equals("usuario encontrado")) {
+            LinkedList<administrator> busquedanombre = metodos.BuscarAdministrator(jTextField1.getText());
+            JOptionPane.showMessageDialog(this, "Bienvenido (a) /n" + busquedanombre);
+            MenuPrincipal ventana = new MenuPrincipal();
+            ventana.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario no resgitrado");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 //  public void validarUser(){
@@ -193,36 +194,36 @@ public class Login extends javax.swing.JFrame {
 //        }   
 // 
 //  }
-    public void validarUser() {
-        int resultado = 0;
-
-        try {
-            String email = jTextField1.getText();
-            String pass = String.valueOf(jPasswordField1.getText());
-
-            String sql = "select * from administrator where email='" + email + "' and password='" + pass + "'";
-
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            if (rs.next()) {
-                InterfazStudent obji=new  InterfazStudent();
-                obji.setIdAdmin(rs.getInt("idA"));
-                resultado = 1;
-
-                if (resultado == 1) {
-                    JOptionPane.showMessageDialog(null, "Bienvenido al sistema");
-                    MenuPrincipal ventana = new MenuPrincipal();
-                    ventana.setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error, vuelve a intentar");
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
-        }
-    }
+//    public void validarUser() {
+//        int resultado = 0;
+//
+//        try {
+//            String email = jTextField1.getText();
+//            String pass = String.valueOf(jPasswordField1.getText());
+//
+//            String sql = "select * from administrator where email='" + email + "' and password='" + pass + "'";
+//
+//            Statement st = con.createStatement();
+//            ResultSet rs = st.executeQuery(sql);
+//
+//            if (rs.next()) {
+//                InterfazStudent obji=new  InterfazStudent();
+//                obji.setIdAdmin(rs.getInt("idA"));
+//                resultado = 1;
+//
+//                if (resultado == 1) {
+//                    JOptionPane.showMessageDialog(null, "Bienvenido al sistema");
+//                    MenuPrincipal ventana = new MenuPrincipal();
+//                    ventana.setVisible(true);
+//                    this.dispose();
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Error, vuelve a intentar");
+//                }
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+//        }
+//    }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
     }//GEN-LAST:event_formWindowOpened
