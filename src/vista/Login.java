@@ -163,7 +163,7 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Usuario no resgitrado");
-        }
+        } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
 //  public void validarUser(){
