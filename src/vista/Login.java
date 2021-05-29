@@ -61,6 +61,12 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Inicio de sesión");
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,21 +155,24 @@ public class Login extends javax.swing.JFrame {
 //        validarUser();
 
        LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado(jTextField1.getText(), jPasswordField1.getText());
- 
-        if (jTextField1.getText().equals("root") && jPasswordField1.getText().equals("root")) {
-            JOptionPane.showMessageDialog(this, "Bienvenido root");
+       System.out.println(lc);
+       System.out.println(lc.getFirst().getEmail());
+
+     
+            if(lc.getFirst().getEmail().equals(jTextField1.getText()) && lc.getFirst().getPassword().equals(jPasswordField1.getText()))
+            
+            {
+            JOptionPane.showMessageDialog(this, "Bienvenido" );
             MenuPrincipal ventana = new MenuPrincipal();
             ventana.setVisible(true);
             this.dispose();
-        } else if (lc.equals("usuario encontrado")) {
-            LinkedList<administrator> busquedanombre = metodos.BuscarAdministrator(jTextField1.getText());
-            JOptionPane.showMessageDialog(this, "Bienvenido (a) /n" + busquedanombre);
-            MenuPrincipal ventana = new MenuPrincipal();
-            ventana.setVisible(true);
-            this.dispose();
-        } else {
+            }
+            else {
             JOptionPane.showMessageDialog(this, "Usuario no resgitrado");
         } 
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 //  public void validarUser(){
@@ -239,6 +248,10 @@ public class Login extends javax.swing.JFrame {
         jTextField1.setText("");
         jPasswordField1.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

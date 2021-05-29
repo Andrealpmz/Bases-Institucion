@@ -93,7 +93,7 @@ public class ControllerAdministrador {
         
         LinkedList<administrator> lc=null;
         
-        String sql="SELECT nameA1, lastNameA1 FROM administrator WHERE email = '"+email+"' && password = '"+password+"'";
+        String sql="SELECT idA, nameA1, lastNameA1, email, password FROM administrator WHERE email = '"+email+"' && password = '"+password+"'";
         administrator objc=new administrator();
         
         lc=objc.consultarAdministrator(sql);

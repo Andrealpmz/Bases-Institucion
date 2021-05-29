@@ -32,7 +32,7 @@ public class administrator {
 
     private String password;
 
-    public administrator() {
+   public administrator() {
     }
 
     public administrator(String nameA1, String lastNameA1) {
@@ -197,6 +197,9 @@ public class administrator {
         ResultSet rs;
         String name;
         String last;
+        int id;
+        String email;
+        String password;
         if(objbd.crearConexion()){
             try {
                 Statement st=objbd.getConexion().createStatement();
@@ -204,8 +207,13 @@ public class administrator {
                 while (rs.next()) {                    
                     name=rs.getString("nameA1");
                     last=rs.getString("lastNameA1");
+                    id=rs.getInt("idA");
+                    email=rs.getString("email");
+                    password=rs.getString("password");
                     
-                    lc.add(new administrator(name, last));
+                            
+                    
+                    lc.add(new administrator(id, name, null, last, null, email, password));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(administrator.class.getName()).log(Level.SEVERE, null, ex);
