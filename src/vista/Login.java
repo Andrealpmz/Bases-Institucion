@@ -157,13 +157,13 @@ public class Login extends javax.swing.JFrame {
        LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado(jTextField1.getText(), jPasswordField1.getText());
        System.out.println(lc);
        System.out.println(lc.getFirst().getEmail());
-
+       int idAfk=lc.getFirst().getIdA();
      
             if(lc.getFirst().getEmail().equals(jTextField1.getText()) && lc.getFirst().getPassword().equals(jPasswordField1.getText()))
             
             {
             JOptionPane.showMessageDialog(this, "Bienvenido" );
-            MenuPrincipal ventana = new MenuPrincipal();
+            MenuPrincipal ventana = new MenuPrincipal(idAfk);
             ventana.setVisible(true);
             this.dispose();
             }
