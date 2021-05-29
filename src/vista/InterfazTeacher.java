@@ -24,7 +24,12 @@ public class InterfazTeacher extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    public InterfazTeacher(int id) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.idAfk=id;
+    }
+    private int idAfk;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,9 +178,10 @@ public class InterfazTeacher extends javax.swing.JFrame {
         String nom=jTextField1.getText();
         String ape=jTextField6.getText();
         String cor=jTextField5.getText();
+       
         
         
-        teacher objr = new teacher(nom, ape, cor);
+        teacher objr = new teacher(nom, ape, cor,idAfk);
         ControllerTeacher objcr = new ControllerTeacher();
         
         boolean t= objcr.insertTeacher(objr);

@@ -17,8 +17,8 @@ import modelo.teacher;
 public class ControllerTeacher {
         public boolean insertTeacher(teacher objr) { 
         boolean t=false;
-        String sql="insert into teacher(nameT1, lastNameT1, email)" 
-                + " value('"+objr.getNameT1()+"', '"+objr.getLastNameT1()+"', '"+objr.getEmail()+"');";
+        String sql="insert into teacher(nameT1, lastNameT1, email,idAfk)" 
+                + " value('"+objr.getNameT1()+"', '"+objr.getLastNameT1()+"', '"+objr.getEmail()+"', '"+objr.getIdAfk()+"');";
         
         BaseDatos objbd=new BaseDatos();
         t=objbd.ejecutarSQL(sql);

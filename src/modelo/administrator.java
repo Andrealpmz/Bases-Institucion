@@ -34,7 +34,9 @@ public class administrator {
 
    public administrator() {
     }
-
+   public administrator(int idAfk){
+       this.idA=idAfk;
+   }
     public administrator(String nameA1, String lastNameA1) {
         this.nameA1 = nameA1;
         this.lastNameA1 = lastNameA1;

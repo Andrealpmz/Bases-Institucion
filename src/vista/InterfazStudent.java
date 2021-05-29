@@ -26,7 +26,12 @@ public class InterfazStudent extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    public InterfazStudent(int id) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.idAfk=id;
+    }
+    private int idAfk;
     public void setIdAdmin(int id){
         idAdmin=id;
     }
@@ -268,11 +273,17 @@ public class InterfazStudent extends javax.swing.JFrame {
 //        int admin;
 //        admin = jComboBox1.getItemAt(jComboBox1.getSelectedIndex()).getIdAfk();
 
-        student objs = new student(nom, ape1, edad, gen, cur, he, idAdmin);
+        student objs = new student(nom, ape1, edad, gen, cur, he,est,idAfk);
         ControllerEstudiante objca = new ControllerEstudiante();
 
         boolean t = objca.insertEstudiante(objs);
-
+if (t)
+        {
+            JOptionPane.showMessageDialog(null, "Se insertó con éxito");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No se insertó");           
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

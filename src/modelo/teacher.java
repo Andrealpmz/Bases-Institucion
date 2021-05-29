@@ -45,10 +45,11 @@ public class teacher {
         this.idAfk = idAfk;
     }
 
-    public teacher(String nameT1, String lastNameT1, String email) {
+    public teacher(String nameT1, String lastNameT1, String email, int idAfk) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
+        this.idAfk=idAfk;
     }
 
     public teacher(String nameT1, String lastNameT1) {

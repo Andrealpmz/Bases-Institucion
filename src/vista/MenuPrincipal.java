@@ -5,10 +5,13 @@
  */
 package vista;
 
+import modelo.administrator;
+
 /**
  *
  * @author ANDREA PEREZ
  */
+
 public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
@@ -18,7 +21,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    public MenuPrincipal(int idAfk) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.id=idAfk;
+    }
+     private int id;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,7 +127,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        InterfazStudent ventana = new InterfazStudent();
+        InterfazStudent ventana = new InterfazStudent(id);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -126,6 +135,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         InterfazScore ventana = new InterfazScore();
         ventana.setVisible(true);
+        
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -140,7 +150,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-                     InterfazTeacher ventana = new InterfazTeacher();
+                     InterfazTeacher ventana = new InterfazTeacher(id);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -178,8 +188,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 new MenuPrincipal().setVisible(true);
             }
         });
-    }
-
+    } 
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
