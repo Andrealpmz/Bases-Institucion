@@ -310,7 +310,7 @@ if (t)
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                   MenuPrincipal ventana = new MenuPrincipal();
+                   MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
             ventana.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

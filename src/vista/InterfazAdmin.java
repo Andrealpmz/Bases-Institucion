@@ -219,7 +219,7 @@ public class InterfazAdmin extends javax.swing.JFrame {
 
         if (t) {
             JOptionPane.showMessageDialog(null, "Registro exitoso!");
-            Login ventana = new Login();
+            LoginAdmin ventana = new LoginAdmin();
             ventana.setVisible(true);
             this.dispose();
         } else {

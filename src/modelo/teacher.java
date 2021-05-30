@@ -5,10 +5,14 @@
  */
 package modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +21,7 @@ import java.util.logging.Logger;
  * @author ANDREA PEREZ
  */
 public class teacher {
-    
+
     private int idT;
 
     private String nameT1;
@@ -29,12 +33,14 @@ public class teacher {
     private String lastNameT2;
 
     private String email;
+    
+    private String password;
 
     private int idAfk;
-    
+
     public teacher() {
     }
-    
+
     public teacher(int idT, String nameT1, String nameT2, String lastNameT1, String lastNameT2, String email, int idAfk) {
         this.idT = idT;
         this.nameT1 = nameT1;
@@ -45,16 +51,30 @@ public class teacher {
         this.idAfk = idAfk;
     }
 
-    public teacher(String nameT1, String lastNameT1, String email, int idAfk) {
+    public teacher(String nameT1, String lastNameT1, String email, String password, int idAfk) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
-        this.idAfk=idAfk;
+        this.password = password;
+        this.idAfk = idAfk;
+    }
+
+    public teacher(String nameT1, String lastNameT1, String email) {
+        this.nameT1 = nameT1;
+        this.lastNameT1 = lastNameT1;
+        this.email = email;
     }
 
     public teacher(String nameT1, String lastNameT1) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
+    }
+
+    public teacher(String nameT1, String lastNameT1, String email, String password) {
+        this.nameT1 = nameT1;
+        this.lastNameT1 = lastNameT1;
+        this.email = email;
+        this.password = password;
     }
 
 
@@ -111,6 +131,14 @@ public class teacher {
      */
     public void setLastNameT2(String lastNameT2) {
         this.lastNameT2 = lastNameT2;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
@@ -187,33 +215,98 @@ public class teacher {
 
     @Override
     public String toString() {
-        return "teacher{" + "idT=" + idT + ", nameT1=" + nameT1 + ", nameT2=" + nameT2 + ", lastNameT1=" + lastNameT1 + ", lastNameT2=" + lastNameT2 + ", email=" + email + ", idAfk=" + idAfk + '}';
+        return "teacher{" + "idT=" + idT + ", nameT1=" + nameT1 + ", nameT2=" + nameT2 + ", lastNameT1=" + lastNameT1 + ", lastNameT2=" + lastNameT2 + ", email=" + email + ", password=" + password + ", idAfk=" + idAfk + '}';
     }
+
+ 
 
     public LinkedList<teacher> consultarTeacher(String sql) {
 
-         BaseDatos objbd=new BaseDatos();
-        LinkedList<teacher> lc=new LinkedList<>();
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<teacher> lc = new LinkedList<>();
         ResultSet rs;
         String name;
         String last;
-        if(objbd.crearConexion()){
+        String pass;
+//        String email;
+//        int fk;
+
+        if (objbd.crearConexion()) {
             try {
-                Statement st=objbd.getConexion().createStatement();
-                rs=st.executeQuery(sql);
-                while (rs.next()) {                    
-                    name=rs.getString("nameT1");
-                    last=rs.getString("lastNameT1");
-                    
-                    lc.add(new teacher(name, last));
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    name = rs.getString("nameT1");
+                    last = rs.getString("lastNameT1");
+                    email = rs.getString("email");
+                    pass = rs.getString("password");
+//                    llave=rs.getInt("idAfk");
+
+                    lc.add(new teacher(name, last, email, pass));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(teacher.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
-        
+
         return lc;
+    }
+
+    public teacher consultarDocentesApellido(String sql) {
+
+        BaseDatos objbd = new BaseDatos();
+        teacher objd = new teacher();
+        String name;
+        String last;
+        ResultSet rs;
+        if (objbd.crearConexion()) {
+            try {
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                rs.next();
+                name = rs.getString("nameT1");
+                last = rs.getString("lastNameT1");
+
+                objd = new teacher(name, last);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(teacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return objd;
+    }
+
+    BaseDatos conectar = new BaseDatos();
+    Connection conexion;
+    PreparedStatement ps;
+    ResultSet rs;
+
+    public List listar() {
+
+        List<teacher> datos = new ArrayList<>();
+        String sql = "select * from teacher";
+
+        try {
+
+            conexion = conectar.getConexion();
+            ps = conexion.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                teacher t = new teacher();
+                t.setNameT1(rs.getString(1));
+                t.setLastNameT1(rs.getString(2));
+                t.setEmail(rs.getString(3));
+                datos.add(t);
+            }
+        } catch (Exception e) {
+
+        }
+        return datos;
+    }
+
+    public int idT() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

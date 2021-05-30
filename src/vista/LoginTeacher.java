@@ -6,6 +6,7 @@
 package vista;
 
 import control.ControllerAdministrador;
+import control.ControllerTeacher;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,12 +14,13 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import modelo.BaseDatos;
 import modelo.administrator;
+import modelo.teacher;
 
 /**
  *
  * @author ANDREA PEREZ
  */
-public class Login extends javax.swing.JFrame {
+public class LoginTeacher extends javax.swing.JFrame {
 
     BaseDatos cc = new BaseDatos();
     Connection con = cc.getConexion();
@@ -26,12 +28,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form InterfazGrade
      */
-    public Login() {
+    public LoginTeacher() {
         initComponents();
         setLocationRelativeTo(null);
 
     }
-    ControllerAdministrador metodos = new ControllerAdministrador();
+    ControllerTeacher metodos = new ControllerTeacher();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,16 +155,16 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
 
-       LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado(jTextField1.getText(), jPasswordField1.getText());
+       LinkedList<teacher> lc = metodos.BuscarTeacherRegistrado(jTextField1.getText(), jPasswordField1.getText());
        System.out.println(lc);
        System.out.println(lc.getFirst().getEmail());
-       int idAfk=lc.getFirst().getIdA();
+       int idTfk=lc.getFirst().idT();
      
             if(lc.getFirst().getEmail().equals(jTextField1.getText()) && lc.getFirst().getPassword().equals(jPasswordField1.getText()))
             
             {
             JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.getFirst().getEmail());
-            MenuPrincipal ventana = new MenuPrincipal(idAfk);
+            MenuPrincipalTeacher ventana = new MenuPrincipalTeacher(idTfk);
             ventana.jLabel2.setText(lc.getFirst().getEmail());
             ventana.setVisible(true);
             this.dispose();
@@ -211,14 +213,26 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginTeacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -227,7 +241,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginTeacher().setVisible(true);
             }
         });
     }

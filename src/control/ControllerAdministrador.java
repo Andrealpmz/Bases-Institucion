@@ -61,28 +61,6 @@ public class ControllerAdministrador {
         return lc;
     }
 //        
-        
-        
-        
-        
-//           public boolean BuscarAdministrator(String email ) { 
-//        boolean t=false;
-//        String sql=("SELECT nameA1, lastNameA1 FROM administrator WHERE email = '"+email+ "'");
-//        
-//        BaseDatos objbd=new BaseDatos();
-//        t=objbd.ejecutarSQL(sql);
-//        return t;
-//    }
-//    public boolean BuscarAdministratorRegistrado(String email, String password ) { 
-//        boolean t=false;
-//        String sql=("SELECT nameA1, lastNameA1 FROM administrator WHERE email = '"+email+"' && password = '"+password+"'");
-//        
-//        BaseDatos objbd=new BaseDatos();
-//        t=objbd.ejecutarSQL(sql);
-//        return t;
-//    }
-
- 
 }
  
         

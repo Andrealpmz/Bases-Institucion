@@ -10,7 +10,7 @@ import modelo.BaseDatos;
  *
  * @author ANDREA PEREZ
  */
-public class Conexion {
+public class Cone {
 
     /**
      * @param args the command line arguments
