@@ -117,7 +117,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Filtrar estudiante con mejores notas"/>
+        <Property name="text" type="java.lang.String" value="Filtrar estudiante con notas m&#xe1;s bajas"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">

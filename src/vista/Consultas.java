@@ -50,7 +50,7 @@ public class Consultas extends javax.swing.JFrame {
 
         jButton2.setText("Filtrar estudiantes por grado");
 
-        jButton3.setText("Filtrar estudiante con mejores notas");
+        jButton3.setText("Filtrar estudiante con notas más bajas");
 
         jButton4.setText("Filtrar todos los docentes");
 

@@ -37,46 +37,7 @@ public class ControllerAdministrador {
         return lc;
     }
 
-    public int consultarIdAdmin(String nameA1) {
-        Integer lc = null;
-        String sql = "select  idCategoria from categorias where nameA1='" + nameA1 + "' ;";
-        administrator objc = new administrator();
-        lc = objc.consultarIdAdmin(sql);
-
-        return lc;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-//  public boolean BuscarAdministrator(administrator obja) { 
-//        boolean t=false;
-//        String sql="SELECT nameA1, lastNameA1 FROM administrator WHERE email"
-//                + " value('"+obja.getEmail()+"');";
-//        
-//        BaseDatos objbd=new BaseDatos();
-//        t=objbd.ejecutarSQL(sql);
-//        return t;
-//    }   
-//    
-//  public boolean BuscarAdministratorRegistrado(administrator obja) { 
-//        boolean t=false;
-//        String sql="SELECT nameA1, lastNameA1 FROM administrator WHERE email"
-//                + " value('"+obja.getEmail()+"', "
-//                + "'"+obja.getPassword()+"');";
-//        
-//        BaseDatos objbd=new BaseDatos();
-//        t=objbd.ejecutarSQL(sql);
-//        return t;
-//    }   
-  
-  
+// 
     
         public LinkedList<administrator> BuscarAdministrator(String email) {
         

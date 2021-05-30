@@ -240,7 +240,6 @@ public class administrator {
                 while (rs.next()) {
                     System.out.println(rs.getInt("idA"));
                     idA = rs.getInt("idA");
-                    //      nomc = rs.getString("nombreCategoria");
 
                 }
             } catch (SQLException ex) {
