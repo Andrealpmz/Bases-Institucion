@@ -15,7 +15,7 @@ import java.lang.String;
  * @author ANDREA PEREZ
  */
 public class MenuPrincipalAdmin extends javax.swing.JFrame {
-
+ public int id;
     /**
      * Creates new form MenuPrincipal
      */
@@ -29,7 +29,7 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.id = idAfk;
     }
-    private int id;
+   
     ControllerAdministrador metodos = new ControllerAdministrador();
 
     /**
@@ -146,6 +146,7 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
 //        LinkedList<administrator> lc=metodos.BuscarAdministratorRegistrado( email,  password);
+        System.out.println("ventana login: "+id );
         InterfazStudent ventana = new InterfazStudent(id);
 //        ventana.jLabel12.setText(lc.getFirst().getEmail());
 //        ventana.jLabel12.setText(lc.getFirst().getEmail());
@@ -158,6 +159,7 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+System.out.println("ventana login: "+id );
         InterfazTeacher ventana = new InterfazTeacher(id);
         ventana.setVisible(true);
         this.dispose();

@@ -51,12 +51,13 @@ public class teacher {
         this.idAfk = idAfk;
     }
 
-    public teacher(String nameT1, String lastNameT1, String email, String passwordT, int idAfk) {
+    public teacher(String nameT1, String lastNameT1, String email, int idAfk, String passwordT) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
-        this.passwordT = passwordT;
         this.idAfk = idAfk;
+        this.passwordT = passwordT;
+        
     }
      public teacher(String nameT1, String lastNameT1, String email , int idAfk) {
         this.nameT1 = nameT1;

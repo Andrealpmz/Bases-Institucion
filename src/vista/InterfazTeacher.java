@@ -21,7 +21,8 @@ public class InterfazTeacher extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
-     public int idAdmin;
+     public int idA;
+      private int idAfk;
     public InterfazTeacher() {
         initComponents();
         setLocationRelativeTo(null);
@@ -31,9 +32,9 @@ public class InterfazTeacher extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.idAfk=id;
     }
-    private int idAfk;
+   
     public void setIdAdmin(int id){
-        idAdmin=id;
+        idA=id;
     }
     
    
@@ -207,8 +208,8 @@ public class InterfazTeacher extends javax.swing.JFrame {
         String pass=jPasswordField1.getText();
        
         
-        
-        teacher objr = new teacher(nom, ape, cor, pass, idAfk);
+        System.out.println(nom +","+ ape+","+ cor+","+ idAfk+","+ pass);
+        teacher objr = new teacher(nom, ape, cor, idAfk, pass);
         ControllerTeacher objcr = new ControllerTeacher();
         
         boolean t= objcr.insertTeacher(objr);
@@ -228,7 +229,7 @@ public class InterfazTeacher extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
              MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
-             ventana.jLabel2.setText(""+idAfk);
+             ventana.jLabel2.setText(" "+ idAfk);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

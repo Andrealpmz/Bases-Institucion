@@ -6,10 +6,12 @@
 package vista;
 
 import control.ControllerEstudiante;
+import control.ControllerGrade;
 import control.ControllerGrade_Subject;
 import control.ControllerScore;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import modelo.grade;
 import modelo.grade_subject;
 
 import modelo.score;
@@ -24,6 +26,8 @@ public class InterfazScore extends javax.swing.JFrame {
     /**
      * Creates new form InterfazGrade
      */
+     private int idSfk;
+     private int idEnfk;
     public InterfazScore() {
         initComponents();
         setLocationRelativeTo(null);
@@ -168,9 +172,24 @@ public class InterfazScore extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Aún no sirve
         //String nota=jTextField1.getText();
+         LinkedList<student> listac = null;
+        LinkedList<grade> listag = null;
+
+        ControllerEstudiante objcc = new ControllerEstudiante();
+        ControllerGrade objgj = new ControllerGrade();
+          listag = objgj.insertGrade();
+        for (int i = 0; i < listag.size(); i++) {
+            grade grado = listag.get(i);
+            idSfk = grado.getIdGr();
+        }   
+        listac = objcc.insertEstudiante();
+        for (int i = 0; i < listac.size(); i++) {
+            student student = listac.get(i);
+            idEnfk = student.getIdS();
+        }
         double nota = Double.parseDouble(jTextField1.getText());
 
-        score objs = new score(nota);
+        score objs = new score(nota, idSfk, idEnfk);
 
         ControllerScore objca = new ControllerScore();
 
@@ -189,10 +208,10 @@ public class InterfazScore extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         LinkedList<student> listac = null;
-        LinkedList<grade_subject> listag = null;
+        LinkedList<grade> listag = null;
 
         ControllerEstudiante objcc = new ControllerEstudiante();
-        ControllerGrade_Subject objgj = new ControllerGrade_Subject();
+        ControllerGrade objgj = new ControllerGrade();
 
         listac = objcc.insertEstudiante();
         for (int i = 0; i < listac.size(); i++) {
@@ -200,10 +219,10 @@ public class InterfazScore extends javax.swing.JFrame {
             jComboBox1.addItem(student.getName1S() + " " + student.getLastName1S());
         }
 
-        listag = objgj.insertGradeSubject();
+        listag = objgj.insertGrade();
         for (int i = 0; i < listag.size(); i++) {
-            grade_subject grade_subject = listag.get(i);
-            jComboBox2.addItem(Integer.toString(grade_subject.getIdEn()));
+            grade grado = listag.get(i);
+            jComboBox2.addItem((grado.getNameGr()));
 
         }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened

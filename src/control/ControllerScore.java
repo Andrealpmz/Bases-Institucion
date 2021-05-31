@@ -15,8 +15,8 @@ import modelo.score;
 public class ControllerScore {
      public boolean insertScore(score objs) { 
         boolean t=false;
-        String sql="insert into score(score)" 
-                + " value('"+objs.getScore()+"');";
+        String sql="insert into score(score, idSfk, idEnfk)" 
+                + " value('"+objs.getScore()+" "+objs.getIdSfk()+" "+objs.getIdEnfk()+"');";
         
         
         

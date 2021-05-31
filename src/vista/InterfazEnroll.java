@@ -26,6 +26,7 @@ public class InterfazEnroll extends javax.swing.JFrame {
     private int idAfk;
     private int idSfk;
     private int idGrfk;
+    public int id;
     /**
      * Creates new form InterfazEnroll
      */
