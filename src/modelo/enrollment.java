@@ -13,7 +13,7 @@ public class enrollment {
     
     private int idEn;
     private String dateEnrollment;
-    private String idSfk;
+    private int idSfk;
     private int idGrfk;
 
     public enrollment() {
@@ -24,8 +24,14 @@ public class enrollment {
 
     }
     
-    public enrollment(int idEn, String dateEnrollment, String idSfk, int idGrfk) {
+    public enrollment(int idEn, String dateEnrollment, int idSfk, int idGrfk) {
         this.idEn = idEn;
+        this.dateEnrollment = dateEnrollment;
+        this.idSfk = idSfk;
+        this.idGrfk = idGrfk;
+    }
+     public enrollment( String dateEnrollment, int idSfk, int idGrfk) {
+       
         this.dateEnrollment = dateEnrollment;
         this.idSfk = idSfk;
         this.idGrfk = idGrfk;
@@ -76,7 +82,7 @@ public class enrollment {
      *
      * @return the value of idSfk
      */
-    public String getIdSfk() {
+    public int getIdSfk() {
         return idSfk;
     }
 
@@ -85,7 +91,7 @@ public class enrollment {
      *
      * @param idSfk new value of idSfk
      */
-    public void setIdSfk(String idSfk) {
+    public void setIdSfk(int idSfk) {
         this.idSfk = idSfk;
     }
 

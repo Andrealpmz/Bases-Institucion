@@ -22,15 +22,12 @@ import vista.FiltarDocentes;
  */
 public class ControllerTeacher implements ActionListener{
 
-    public ControllerTeacher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
 
 public boolean insertTeacher(teacher objr) {
         boolean t = false;
-        String sql = "insert into teacher(nameT1, lastNameT1, email,idAfk)"
-                + " value('" + objr.getNameT1() + "', '" + objr.getLastNameT1() + "', '" + objr.getEmail() + "', '" + objr.getIdAfk() + "');";
+        String sql = "insert into teacher(nameT1, lastNameT1, email, passwordT, idAfk)"
+                + " value('" + objr.getNameT1() + "', '" + objr.getLastNameT1() + "', '" + objr.getEmail() +"', '"+objr.getPasswordT()+  "', '"+objr.getIdAfk() + "');";
 
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql);
@@ -47,11 +44,12 @@ public boolean insertTeacher(teacher objr) {
     }
 
     
-            public LinkedList<teacher> BuscarTeacherRegistrado(String email, String password) {
+            public LinkedList<teacher> BuscarTeacherRegistrado() {
         
         LinkedList<teacher> lc=null;
         
-        String sql="SELECT idT, nameT1, lastNameT1, email  FROM teacher WHERE email = '"+email+"' && password = '"+password+"'";
+        String sql="SELECT idT, nameT1, lastNameT1, email,passwordT  FROM teacher ";
+              //  + "WHERE email = '"+email+"' && passwordT = '"+passwordT+"'";
         teacher objc=new teacher();
         
         lc=objc.consultarTeacher(sql);
@@ -101,7 +99,8 @@ public boolean insertTeacher(teacher objr) {
     FiltarDocentes FiltarDocentes=new FiltarDocentes();
     DefaultTableModel modelo=new DefaultTableModel();
 
-    public ControllerTeacher(FiltarDocentes f) {
+   // Este metodo tiene errores "no nombrar ControllerTeacher ni por el hijueputas"
+    public void FiltrarDocentes (FiltarDocentes f) {
         
        this.FiltarDocentes=f;
        this.FiltarDocentes.jButton1.addActionListener(this);
@@ -129,9 +128,19 @@ public boolean insertTeacher(teacher objr) {
     }
 
     public LinkedList<teacher> insertTeacher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+       
+     LinkedList<teacher> lt=null;
+        
+        String sql="select * from teacher;";
+        teacher objT=new teacher();
+        
+        lt=objT.consultarTeacher(sql);
+        return lt;
     
+    }
+      /* public ControllerTeacher() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
     
     
 }

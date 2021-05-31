@@ -172,7 +172,7 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        InterfazEnroll ventana = new InterfazEnroll();
+        InterfazEnroll ventana = new InterfazEnroll(id);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed

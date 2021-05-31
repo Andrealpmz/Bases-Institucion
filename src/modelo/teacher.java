@@ -34,7 +34,7 @@ public class teacher {
 
     private String email;
     
-    private String password;
+    private String passwordT;
 
     private int idAfk;
 
@@ -51,11 +51,17 @@ public class teacher {
         this.idAfk = idAfk;
     }
 
-    public teacher(String nameT1, String lastNameT1, String email, String password, int idAfk) {
+    public teacher(String nameT1, String lastNameT1, String email, String passwordT, int idAfk) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
-        this.password = password;
+        this.passwordT = passwordT;
+        this.idAfk = idAfk;
+    }
+     public teacher(String nameT1, String lastNameT1, String email , int idAfk) {
+        this.nameT1 = nameT1;
+        this.lastNameT1 = lastNameT1;
+        this.email = email;
         this.idAfk = idAfk;
     }
 
@@ -70,11 +76,11 @@ public class teacher {
         this.lastNameT1 = lastNameT1;
     }
 
-    public teacher(String nameT1, String lastNameT1, String email, String password) {
+    public teacher(String nameT1, String lastNameT1, String email, String passwordT) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
-        this.password = password;
+        this.passwordT = passwordT;
     }
 
 
@@ -133,12 +139,12 @@ public class teacher {
         this.lastNameT2 = lastNameT2;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordT() {
+        return passwordT;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordT(String passwordT) {
+        this.passwordT = passwordT;
     }
 
     /**
@@ -212,11 +218,8 @@ public class teacher {
     public void setIdT(int idT) {
         this.idT = idT;
     }
-
-    @Override
-    public String toString() {
-        return "teacher{" + "idT=" + idT + ", nameT1=" + nameT1 + ", nameT2=" + nameT2 + ", lastNameT1=" + lastNameT1 + ", lastNameT2=" + lastNameT2 + ", email=" + email + ", password=" + password + ", idAfk=" + idAfk + '}';
-    }
+    
+   
 
  
 
@@ -227,9 +230,10 @@ public class teacher {
         ResultSet rs;
         String name;
         String last;
-        String pass;
-//        String email;
-//        int fk;
+        String password;
+        String mail;
+       
+        int idT;
 
         if (objbd.crearConexion()) {
             try {
@@ -237,15 +241,14 @@ public class teacher {
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
                     name = rs.getString("nameT1");
-                    last = rs.getString("lastNameT1");
-                    email = rs.getString("email");
-                    pass = rs.getString("password");
-//                    llave=rs.getInt("idAfk");
-
-                    lc.add(new teacher(name, last, email, pass));
+                    last = rs.getString("lastNameT1");             
+                    mail = rs.getString("email");
+                    password = rs.getString("passwordT");
+                    lc.add(new teacher( name, last, mail, password));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(teacher.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
 
         }

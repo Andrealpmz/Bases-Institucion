@@ -7,9 +7,10 @@ package vista;
 
 import control.ControllerTeacher;
 import javax.swing.JOptionPane;
-
+import control.ControllerAdministrador;
 import modelo.readbook;
 import modelo.teacher;
+import modelo.administrator;
 
 /**
  *
@@ -20,6 +21,7 @@ public class InterfazTeacher extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
+     public int idAdmin;
     public InterfazTeacher() {
         initComponents();
         setLocationRelativeTo(null);
@@ -30,6 +32,11 @@ public class InterfazTeacher extends javax.swing.JFrame {
         this.idAfk=id;
     }
     private int idAfk;
+    public void setIdAdmin(int id){
+        idAdmin=id;
+    }
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,6 +117,12 @@ public class InterfazTeacher extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Contraseña");
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,7 +208,7 @@ public class InterfazTeacher extends javax.swing.JFrame {
        
         
         
-        teacher objr = new teacher(nom, ape, cor, pass);
+        teacher objr = new teacher(nom, ape, cor, pass, idAfk);
         ControllerTeacher objcr = new ControllerTeacher();
         
         boolean t= objcr.insertTeacher(objr);
@@ -214,7 +227,8 @@ public class InterfazTeacher extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-             MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
+             MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
+             ventana.jLabel2.setText(""+idAfk);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -227,6 +241,10 @@ public class InterfazTeacher extends javax.swing.JFrame {
        jTextField6.setText("");
       jPasswordField1.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments

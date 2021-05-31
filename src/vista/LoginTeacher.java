@@ -154,25 +154,36 @@ public class LoginTeacher extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        LinkedList<teacher> lc = metodos.BuscarTeacherRegistrado();
 
-       LinkedList<teacher> lc = metodos.BuscarTeacherRegistrado(jTextField1.getText(), jPasswordField1.getText());
-       System.out.println(lc);
-       System.out.println(lc.getFirst().getEmail());
-       int idTfk=lc.getFirst().idT();
-     
-            if(lc.getFirst().getEmail().equals(jTextField1.getText()) && lc.getFirst().getPassword().equals(jPasswordField1.getText()))
-            
-            {
-            JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.getFirst().getEmail());
-            MenuPrincipalTeacher ventana = new MenuPrincipalTeacher(idTfk);
-            ventana.jLabel2.setText(lc.getFirst().getEmail());
-            ventana.setVisible(true);
-            this.dispose();
+        for (int i = 0; i < lc.size(); i++) {
+            System.out.println(lc.get(i).getEmail());
+            if (lc.get(i).getEmail().equals(jTextField1.getText())) {
+                if (lc.get(i).getPasswordT().equals(jPasswordField1.getText())) {
+                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getEmail());
+                    MenuPrincipalTeacher ventana = new MenuPrincipalTeacher();
+                    ventana.jLabel2.setText(lc.get(i).getEmail());
+                    ventana.setVisible(true);
+                    this.dispose();
+                    break;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
+                    break;
+                }
+                
+
             }
-            else {
-            JOptionPane.showMessageDialog(this, "Usuario no resgitrado");
-        } 
+            if(lc.size()-1==i){
+                JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
+               
+            }
+
+        }
+
         
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 // 

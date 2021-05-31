@@ -120,7 +120,7 @@ public class FiltarDocentes extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
        FiltarDocentes f=new FiltarDocentes();
-       ControllerTeacher c= new ControllerTeacher(f);
+       ControllerTeacher c= new ControllerTeacher();
        f.setVisible(true);
     }
 

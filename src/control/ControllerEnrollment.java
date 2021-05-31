@@ -14,8 +14,8 @@ public class ControllerEnrollment {
     
      public boolean insertEnroll(enrollment obje) { 
         boolean t=false;
-        String sql="insert into enrollment(dateEnrollment)" 
-                + " value('"+obje.getDateEnrollment()+"');";
+        String sql="insert into enrollment(dateEnrollment, idSfk, idGrfk)" 
+                + " value('"+obje.getDateEnrollment()+" "+obje.getIdSfk()+" "+obje.getIdGrfk()+"');";
         
         BaseDatos objbd=new BaseDatos();
         t=objbd.ejecutarSQL(sql);

@@ -13,7 +13,7 @@ import modelo.student;
  *
  * @author ANDREA PEREZ
  */
-public class ControllerEstudiante {
+    public class ControllerEstudiante {
      public boolean insertEstudiante(student objs) { 
         boolean t=false;
         

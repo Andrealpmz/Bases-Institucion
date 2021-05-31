@@ -50,11 +50,11 @@ public class ControllerAdministrador {
         return lc;
     }
         
-        public LinkedList<administrator> BuscarAdministratorRegistrado(String email, String password) {
+        public LinkedList<administrator> BuscarAdministratorRegistrado() {
         
         LinkedList<administrator> lc=null;
         
-        String sql="SELECT idA, nameA1, lastNameA1, email, password FROM administrator WHERE email = '"+email+"' && password = '"+password+"'";
+        String sql="SELECT idA, nameA1, lastNameA1, email, password FROM administrator";
         administrator objc=new administrator();
         
         lc=objc.consultarAdministrator(sql);

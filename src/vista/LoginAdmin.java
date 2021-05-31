@@ -152,24 +152,32 @@ public class LoginAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+// Yo sin haber hecho nada: ez pz xd
+       LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado();
+        for (int i = 0; i < lc.size(); i++) {
+            System.out.println(lc.get(i).getEmail());
+            if (lc.get(i).getEmail().equals(jTextField1.getText())) {
+                if (lc.get(i).getPassword().equals(jPasswordField1.getText())) {
+                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getEmail());
+                    MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
+                    ventana.jLabel2.setText(lc.get(i).getEmail());
+                    ventana.setVisible(true);
+                    this.dispose();
+                    break;
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
+                    break;
+                }
+                
 
-       LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado(jTextField1.getText(), jPasswordField1.getText());
-       System.out.println(lc);
-       System.out.println(lc.getFirst().getEmail());
-       int idAfk=lc.getFirst().getIdA();
-     
-            if(lc.getFirst().getEmail().equals(jTextField1.getText()) && lc.getFirst().getPassword().equals(jPasswordField1.getText()))
-            
-            {
-            JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.getFirst().getEmail());
-            MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
-            ventana.jLabel2.setText(lc.getFirst().getEmail());
-            ventana.setVisible(true);
-            this.dispose();
             }
-            else {
-            JOptionPane.showMessageDialog(this, "Usuario no resgitrado");
-        } 
+            if(lc.size()-1==i){
+                JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
+               
+            }
+
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
