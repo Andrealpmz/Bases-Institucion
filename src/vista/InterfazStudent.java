@@ -21,20 +21,35 @@ public class InterfazStudent extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
+    public void habilitarBoton() {
+        if (!jTextField1.getText().isEmpty() && !jTextField3.getText().isEmpty()
+                && !jTextField6.getText().isEmpty() && !jTextField5.getText().isEmpty()
+                && !jTextField7.getText().isEmpty() && !jTextField8.getText().isEmpty()
+                && !jTextField9.getText().isEmpty()) {
+            jButton4.setEnabled(true);
+        } else {
+            jButton4.setEnabled(false);
+        }
+    }
+
     public int idAdmin;
+
     public InterfazStudent() {
         initComponents();
         setLocationRelativeTo(null);
     }
+
     public InterfazStudent(int id) {
         initComponents();
         setLocationRelativeTo(null);
-        this.idAfk=id;
+        this.idAfk = id;
     }
     private int idAfk;
-    public void setIdAdmin(int id){
-        idAdmin=id;
+
+    public void setIdAdmin(int id) {
+        idAdmin = id;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,28 +104,58 @@ public class InterfazStudent extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Segundo nombre:");
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Primer apellido:*");
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField3KeyReleased(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Segundo apellido:");
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField5KeyReleased(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Edad:*");
 
         jTextField6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField6KeyReleased(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Genero:*");
@@ -135,16 +180,31 @@ public class InterfazStudent extends javax.swing.JFrame {
         jLabel8.setText("Curso:*");
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField7KeyReleased(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Horas de estudio:*");
 
         jTextField8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField8KeyReleased(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Estrato:*");
 
         jTextField9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField9KeyReleased(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton3.setText("Limpiar");
@@ -161,6 +221,7 @@ public class InterfazStudent extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton4.setText("Continuar");
+        jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -289,31 +350,28 @@ public class InterfazStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
         String nom = jTextField1.getText();
         String ape1 = jTextField3.getText();
+//        String a = jTextField2.getText();
+//        String b = jTextField4.getText();
         String edad = jTextField6.getText();
         String gen = jTextField5.getText();
         String cur = jTextField7.getText();
         double he = Double.parseDouble(jTextField8.getText());
         int est = Integer.parseInt(jTextField9.getText());
-//        int IdAfk = (int) jComboBox1.getSelectedItem();
-//        int admin;
-//        admin = jComboBox1.getItemAt(jComboBox1.getSelectedIndex()).getIdAfk();
 
-        student objs = new student(nom, ape1, edad, gen, cur, he,est,idAfk);
+        student objs = new student(nom, ape1,edad, gen, cur, he, est, idAfk);
         ControllerEstudiante objca = new ControllerEstudiante();
 
         boolean t = objca.insertEstudiante(objs);
-if (t)
-        {
+        if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "No se insertó");           
+        } else {
+            JOptionPane.showMessageDialog(null, "No se insertó");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -324,23 +382,23 @@ if (t)
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
-            ventana.jLabel2.setText(""+idAfk);
-            ventana.setVisible(true);
-            this.dispose();
+        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
+        ventana.jLabel2.setText("" + idAfk);
+        ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       jTextField1.setText("");
-       jTextField2.setText("");
-       jTextField3.setText("");
-       jTextField4.setText("");
-       jTextField6.setText("");
-       jTextField5.setText("");
-       jTextField7.setText("");
-       jTextField8.setText("");
-       jTextField9.setText("");
-       
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField6.setText("");
+        jTextField5.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -348,6 +406,42 @@ if (t)
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_jTextField6KeyReleased
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+         habilitarBoton();
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+         habilitarBoton();
+    }//GEN-LAST:event_jTextField5KeyReleased
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+       
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_jTextField7KeyReleased
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_jTextField8KeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+    
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_jTextField9KeyReleased
 
     /**
      * @param args the command line arguments
