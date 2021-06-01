@@ -8,7 +8,8 @@ package vista;
 import control.ControllerAdministrador;
 import control.ControllerReadbook;
 import javax.swing.JOptionPane;
-
+import modelo.student;
+import control.ControllerEstudiante;
 import modelo.readbook;
 
 /**
@@ -16,13 +17,20 @@ import modelo.readbook;
  * @author ANDREA PEREZ
  */
 public class InterfazReadbook extends javax.swing.JFrame {
-
+private int id;
     /**
      * Creates new form InterfazAdmin
      */
     public InterfazReadbook() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    InterfazReadbook(int idS) {
+         initComponents();
+        setLocationRelativeTo(null);
+        this.id = idS; 
+        
     }
 
     /**

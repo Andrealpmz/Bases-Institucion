@@ -24,7 +24,7 @@ public class ControllerVirtualCourse {
         return t;
     }
 
-    public LinkedList<virtualcourse> insertVirtualCourse() {
+    public LinkedList<virtualcourse> buscarCursos() {
             
         LinkedList<virtualcourse> lc=null;
         

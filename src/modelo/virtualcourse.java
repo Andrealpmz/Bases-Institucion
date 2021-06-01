@@ -42,8 +42,9 @@ public class virtualcourse {
         this.courseType = courseType;
     }
 
-    public virtualcourse(String titleC) {
+    public virtualcourse(int idVi, String titleC) {
         this.titleC = titleC;
+        this.idVi=idVi;
     }
 
     /**
@@ -129,14 +130,16 @@ public class virtualcourse {
         LinkedList<virtualcourse> lc=new LinkedList<>();
         ResultSet rs;
         String name;
+        int idvc;
         if(objbd.crearConexion()){
             try {
                 Statement st=objbd.getConexion().createStatement();
                 rs=st.executeQuery(sql);
                 while (rs.next()) {                    
-                    name=rs.getString("titleC");
-                     
-                    lc.add(new virtualcourse(name));
+                    idvc=rs.getInt("idVi");
+                    name=rs.getString("titleC");  
+                    
+                    lc.add(new virtualcourse(idvc,name));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(virtualcourse.class.getName()).log(Level.SEVERE, null, ex);

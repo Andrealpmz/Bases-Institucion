@@ -27,6 +27,10 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
+    LinkedList<sport> listas;
+    LinkedList<readbook> listag;
+    LinkedList<virtualcourse> listav;
+
     public InterfazStudent_Activity() {
         initComponents();
         setLocationRelativeTo(null);
@@ -79,12 +83,6 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setText("Finalizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -106,29 +104,28 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGap(79, 79, 79)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(145, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,83 +144,80 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-;
-        
+
+        String nombreC=String.valueOf( jComboBox3.getSelectedItem());
+        int idvc;
+        for (int i = 0; i < listav.size(); i++) {
+            virtualcourse vc = listav.get(i);
+            if(nombreC.equals(vc.getTitleC())){
+                idvc=vc.getIdVi();
+            }
+            
+        }
         
         virtualcourse objvc = new virtualcourse();
         ControllerVirtualCourse objcvc = new ControllerVirtualCourse();
-        
-        boolean t= objcvc.insertVirtualCourse(objvc);
-       
-        if (t)
-        {
+
+        boolean t = objcvc.insertVirtualCourse(objvc);
+
+        if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "No se insertó");           
+        } else {
+            JOptionPane.showMessageDialog(null, "No se insertó");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        
-        LinkedList<sport> listas=null;
-        LinkedList<readbook> listag=null;
-        LinkedList<virtualcourse> listav=null;
-        
-        ControllerSport objcc=new ControllerSport();
-        ControllerReadbook objgj=new ControllerReadbook();
-        ControllerVirtualCourse objvc=new ControllerVirtualCourse();
-        
-        listas=objcc.insertSport();
-        for (int i = 0; i < listas.size(); i++) 
-        {
+        ControllerSport objcc = new ControllerSport();
+        ControllerReadbook objgj = new ControllerReadbook();
+        ControllerVirtualCourse objvc = new ControllerVirtualCourse();
+
+        listas = objcc.insertSport();
+        for (int i = 0; i < listas.size(); i++) {
             sport sport = listas.get(i);
             jComboBox1.addItem(sport.getSportType());
-        } 
-        
-         listag=objgj.insertReadbook();
-        for (int i = 0; i < listag.size(); i++) 
-        {
+        }
+
+        listag = objgj.insertReadbook();
+        for (int i = 0; i < listag.size(); i++) {
             readbook readbook = listag.get(i);
             jComboBox2.addItem(readbook.getTitleR());
-            
-        } 
-        
-         listav=objvc.insertVirtualCourse();
-        for (int i = 0; i < listav.size(); i++) 
-        {
+
+        }
+
+        listav = objvc.buscarCursos();
+        for (int i = 0; i < listav.size(); i++) {
             virtualcourse virtualcourse = listav.get(i);
             jComboBox3.addItem(virtualcourse.getTitleC());
-        } 
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
-        JOptionPane.showMessageDialog(null, "La matricula del estudiante ...  fue satisfactoria" );
-            MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
-            ventana.setVisible(true);
-            this.dispose();
-        
+
+        JOptionPane.showMessageDialog(null, "La matricula del estudiante ...  fue satisfactoria");
+        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
+        ventana.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-              jComboBox1.setSelectedItem("");
-              jComboBox2.setSelectedItem("");
-              jComboBox3.setSelectedItem("");
+        jComboBox1.setSelectedItem("");
+        jComboBox2.setSelectedItem("");
+        jComboBox3.setSelectedItem("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

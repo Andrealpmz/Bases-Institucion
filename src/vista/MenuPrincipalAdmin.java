@@ -16,6 +16,7 @@ import java.lang.String;
  */
 public class MenuPrincipalAdmin extends javax.swing.JFrame {
  public int id;
+ public String mail;
     /**
      * Creates new form MenuPrincipal
      */
@@ -24,13 +25,16 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    public MenuPrincipalAdmin(int idAfk) {
+    public MenuPrincipalAdmin(int idAfk, String email) {
         initComponents();
         setLocationRelativeTo(null);
         this.id = idAfk;
+        this.mail = email;
     }
    
     ControllerAdministrador metodos = new ControllerAdministrador();
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -149,7 +153,7 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
 
 //        LinkedList<administrator> lc=metodos.BuscarAdministratorRegistrado( email,  password);
         System.out.println("ventana login: "+id );
-        InterfazStudent ventana = new InterfazStudent(id);
+        InterfazStudent ventana = new InterfazStudent(id, mail);
 //        ventana.jLabel12.setText(lc.getFirst().getEmail());
 //        ventana.jLabel12.setText(lc.getFirst().getEmail());
         ventana.setVisible(true);

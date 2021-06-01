@@ -17,6 +17,8 @@ import modelo.student;
  * @author ANDREA PEREZ
  */
 public class InterfazStudent extends javax.swing.JFrame {
+ControllerEstudiante metodos = new ControllerEstudiante();
+ControllerAdministrador metodosA = new ControllerAdministrador();
 
     /**
      * Creates new form InterfazAdmin
@@ -31,21 +33,23 @@ public class InterfazStudent extends javax.swing.JFrame {
             jButton4.setEnabled(false);
         }
     }
-
+    public String mail;
     public int idAdmin;
-
+LinkedList<student> lc = metodos.BuscarEstudianteRegistrado();
+LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
     public InterfazStudent() {
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    public InterfazStudent(int id) {
+    public InterfazStudent(int id,String mail ) {
         initComponents();
         setLocationRelativeTo(null);
         this.idAfk = id;
+        this.email = mail;
     }
     private int idAfk;
-
+    private String email;
     public void setIdAdmin(int id) {
         idAdmin = id;
     }
@@ -350,7 +354,7 @@ public class InterfazStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    
         String nom = jTextField1.getText();
         String ape1 = jTextField3.getText();
 //        String a = jTextField2.getText();
@@ -382,8 +386,10 @@ public class InterfazStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
-        ventana.jLabel2.setText("" + idAfk);
+    
+        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk,email);
+        
+        ventana.jLabel2.setText("" + email);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -402,7 +408,8 @@ public class InterfazStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        InterfazReadbook ventana = new InterfazReadbook();
+         
+        InterfazReadbook ventana = new InterfazReadbook(lc.getLast().getIdS());
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed

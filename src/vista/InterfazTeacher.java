@@ -21,7 +21,7 @@ public class InterfazTeacher extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
-    
+      String email;
     public void habilitarBoton() {
         if (!jTextField1.getText().isEmpty() && !jTextField6.getText().isEmpty() && !jTextField5.getText().isEmpty()
                 && !jPasswordField1.getText().isEmpty()) {
@@ -260,8 +260,9 @@ public class InterfazTeacher extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-             MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk);
-             ventana.jLabel2.setText(" "+ idAfk);
+      
+             MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk, email);
+             ventana.jLabel2.setText(" "+ getName());
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

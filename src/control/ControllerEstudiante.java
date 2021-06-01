@@ -7,6 +7,7 @@ package control;
 
 import java.util.LinkedList;
 import modelo.BaseDatos;
+import modelo.administrator;
 import modelo.student;
 
 /**
@@ -42,7 +43,16 @@ import modelo.student;
         lc=objc.consultarStudent(sql);
         return lc;
     }
-
+ public LinkedList<student> BuscarEstudianteRegistrado() {
+        
+        LinkedList<student> lc=null;
+        
+        String sql="SELECT idS, name1S, lastName1S, age,gender,grade, weeklyStudyHours,socioeconomicStatus FROM student";
+        student objc=new student();
+        
+        lc=objc.consultarStudent(sql);
+        return lc;
  
 
 }
+    }
