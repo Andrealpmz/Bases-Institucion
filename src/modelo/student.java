@@ -369,8 +369,6 @@ public class student {
         return lc;
     }
 
-    public LinkedList<grade_subject> consultarGrade_subject(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
 }

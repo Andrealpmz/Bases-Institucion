@@ -7,12 +7,12 @@ package vista;
 
 import control.ControllerEstudiante;
 import control.ControllerGrade;
-import control.ControllerGrade_Subject;
+
 import control.ControllerScore;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import modelo.grade;
-import modelo.grade_subject;
+
 
 import modelo.score;
 import modelo.student;

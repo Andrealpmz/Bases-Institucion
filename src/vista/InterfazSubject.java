@@ -93,9 +93,9 @@ public class InterfazSubject extends javax.swing.JFrame {
                 
         subject objs = new subject(sub);
         ControllerSubject objcs = new ControllerSubject();
-        
+      
         boolean t= objcs.insertSubject(objs);
-       
+         System.out.println(sub);
         if (t)
         {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
