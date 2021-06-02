@@ -37,6 +37,10 @@ public class administrator {
    public administrator(int idAfk){
        this.idA=idAfk;
    }
+   public administrator(int idAfk, String nameA1){
+       this.idA=idAfk;
+       this.nameA1 = nameA1;
+   }
     public administrator(String nameA1, String lastNameA1) {
         this.nameA1 = nameA1;
         this.lastNameA1 = lastNameA1;
@@ -207,24 +211,29 @@ public class administrator {
         LinkedList<administrator> lc=new LinkedList<>();
         ResultSet rs;
         String name;
+        String name2;
         String last;
+        String last2;
         int id;
-        String email;
-        String password;
+        String mail;
+        String pass;
         if(objbd.crearConexion()){
             try {
                 Statement st=objbd.getConexion().createStatement();
                 rs=st.executeQuery(sql);
                 while (rs.next()) {                    
                     name=rs.getString("nameA1");
+                    name2=rs.getString("nameA2");
                     last=rs.getString("lastNameA1");
+                    last2=rs.getString("lastNameA2");
                     id=rs.getInt("idA");
-                    email=rs.getString("email");
-                    password=rs.getString("password");
+                    mail=rs.getString("email");
+                    pass=rs.getString("password");
                     
                             
                     
-                    lc.add(new administrator(id, name, null, last, null, email, password));
+                    lc.add(new administrator( name,  last, mail, pass));
+                    System.out.println(lc);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(administrator.class.getName()).log(Level.SEVERE, null, ex);

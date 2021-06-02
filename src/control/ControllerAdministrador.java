@@ -54,9 +54,9 @@ public class ControllerAdministrador {
         
         LinkedList<administrator> lc=null;
         
-        String sql="SELECT idA, nameA1, lastNameA1, email, password FROM administrator";
+        String sql="SELECT idA, nameA1, nameA2, lastNameA1, lastNameA2, email, password FROM administrator";
         administrator objc=new administrator();
-        
+            System.out.println(sql);
         lc=objc.consultarAdministrator(sql);
         return lc;
     }

@@ -74,6 +74,10 @@ public class student {
     }
        public student(int idSfk){
        this.idS=idSfk;}
+       public student(int idSfk, String name1S){    
+       this.idS=idSfk;
+       this.name1S = name1S;
+       }
 
     /*public student(String name1S, String name2S, String lastName1S, String lastName2S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.name1S = name1S;
