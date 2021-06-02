@@ -47,7 +47,7 @@ import modelo.student;
         
         LinkedList<student> lc=null;
         
-        String sql="SELECT idS, name1S, lastName1S, age,gender,grade, weeklyStudyHours,socioeconomicStatus FROM student";
+        String sql="SELECT idS, name1S, lastName1S, user, pass, age,gender,grade, weeklyStudyHours,socioeconomicStatus FROM student";
         student objc=new student();
         
         lc=objc.consultarStudent(sql);

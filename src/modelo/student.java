@@ -17,27 +17,31 @@ import java.util.logging.Logger;
  * @author ANDREA PEREZ
  */
 public class student {
-    
+
     private int idS;
 
     private String name1S;
-    
+
     private String name2S;
 
     private String lastName1S;
-    
+
     private String lastName2S;
-    
+
+    private String user;
+
+    private String pass;
+
     private String age;
-    
+
     private String gender;
-    
+
     private String grade;
 
     private double weeklyStudyHours;
-    
+
     private int socioeconomicStatus;
-    
+
     private int idAfk;
 
     public student(String name1S, String lastName1S) {
@@ -79,12 +83,14 @@ public class student {
         this.socioeconomicStatus = socioeconomicStatus;
     }
 
-    public student(int idS, String name1S, String name2S, String lastName1S, String lastName2S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
+    public student(int idS, String name1S, String name2S, String lastName1S, String lastName2S, String user, String pass, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.idS = idS;
         this.name1S = name1S;
         this.name2S = name2S;
         this.lastName1S = lastName1S;
         this.lastName2S = lastName2S;
+        this.user = user;
+        this.pass = pass;
         this.age = age;
         this.gender = gender;
         this.grade = grade;
@@ -93,7 +99,45 @@ public class student {
         this.idAfk = idAfk;
     }
 
+
+
     public student() {
+    }
+
+    /**
+     * Get the value of user
+     *
+     * @return the value of user
+     */
+    public String getUser() {
+        return user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @param user new value of user
+     */
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    /**
+     * Get the value of pass
+     *
+     * @return the value of pass
+     */
+    public String getPass() {
+        return pass;
+    }
+
+    /**
+     * Set the value of pass
+     *
+     * @param pass new value of pass
+     */
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     /**
@@ -114,7 +158,6 @@ public class student {
         this.idAfk = idAfk;
     }
 
-
     /**
      * Get the value of socioeconomicStatus
      *
@@ -132,7 +175,6 @@ public class student {
     public void setSocioeconomicStatus(int socioeconomicStatus) {
         this.socioeconomicStatus = socioeconomicStatus;
     }
-
 
     /**
      * Get the value of weeklyStudyHours
@@ -170,7 +212,6 @@ public class student {
         this.grade = grade;
     }
 
-
     /**
      * Get the value of gender
      *
@@ -188,7 +229,6 @@ public class student {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
 
     /**
      * Get the value of age
@@ -208,7 +248,6 @@ public class student {
         this.age = age;
     }
 
-
     /**
      * Get the value of lastName2S
      *
@@ -226,7 +265,6 @@ public class student {
     public void setLastName2S(String lastName2S) {
         this.lastName2S = lastName2S;
     }
-
 
     /**
      * Get the value of lastName1S
@@ -263,7 +301,6 @@ public class student {
     public void setName2S(String name2S) {
         this.name2S = name2S;
     }
-
 
     /**
      * Get the value of name1S
@@ -307,28 +344,28 @@ public class student {
     }
 
     public LinkedList<student> consultarStudent(String sql) {
-        
-        BaseDatos objbd=new BaseDatos();
-        LinkedList<student> lc=new LinkedList<>();
+
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<student> lc = new LinkedList<>();
         ResultSet rs;
         String name;
         String last;
-        if(objbd.crearConexion()){
+        if (objbd.crearConexion()) {
             try {
-                Statement st=objbd.getConexion().createStatement();
-                rs=st.executeQuery(sql);
-                while (rs.next()) {                    
-                    name=rs.getString("name1S");
-                    last=rs.getString("lastName1S");
-                    
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    name = rs.getString("name1S");
+                    last = rs.getString("lastName1S");
+
                     lc.add(new student(name, last));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(student.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
-        
+
         return lc;
     }
 
