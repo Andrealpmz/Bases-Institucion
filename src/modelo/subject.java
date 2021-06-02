@@ -17,19 +17,19 @@ import java.util.logging.Logger;
  * @author ANDREA PEREZ
  */
 public class subject {
-    
+
     private int idSu;
-    
+
     private String nameSu;
 
     public subject() {
     }
-    
+
     public subject(int idSu, String nameSu) {
         this.idSu = idSu;
         this.nameSu = nameSu;
     }
-    
+
     public subject(String nameSu) {
         this.nameSu = nameSu;
     }
@@ -51,7 +51,6 @@ public class subject {
     public void setNameSu(String nameSu) {
         this.nameSu = nameSu;
     }
-
 
     /**
      * Get the value of idSu
@@ -77,28 +76,28 @@ public class subject {
     }
 
     public LinkedList<subject> consultarSubject(String sql) {
-        
-                 BaseDatos objbd=new BaseDatos();
-        LinkedList<subject> lc=new LinkedList<>();
+
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<subject> lc = new LinkedList<>();
         ResultSet rs;
-        String name;
-        if(objbd.crearConexion()){
+        String nam;
+        if (objbd.crearConexion()) {
             try {
-                Statement st=objbd.getConexion().createStatement();
-                rs=st.executeQuery(sql);
-                while (rs.next()) {                    
-                    name=rs.getString("nameSu");
-                    
-                    lc.add(new subject(name));
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    nam = rs.getString("nameSu");
+
+                    lc.add(new subject(nam));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(subject.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
-        
+
         return lc;
-    
+
     }
 
 }

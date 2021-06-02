@@ -103,6 +103,8 @@ public class InterfazSubject extends javax.swing.JFrame {
         else {
             JOptionPane.showMessageDialog(null, "No se insertó");           
         }
+        
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
