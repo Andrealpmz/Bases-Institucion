@@ -66,6 +66,11 @@ public class InterfazVirtualCourse extends javax.swing.JFrame {
         jLabel6.setText("Horas semanales");
 
         jTextField6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Tipo de curso");
@@ -206,6 +211,10 @@ public class InterfazVirtualCourse extends javax.swing.JFrame {
        jTextField5.setText("");
        jTextField6.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     /**
      * @param args the command line arguments

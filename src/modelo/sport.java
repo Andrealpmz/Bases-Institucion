@@ -42,6 +42,10 @@ public class sport {
     public sport(String sportType) {
         this.sportType = sportType;
     }
+    public sport (int idSP, String sportType) {
+        this.sportType = sportType;
+        this.idSP=idSP;
+    }
 
     /**
      * Get the value of weeklyhours
@@ -110,14 +114,15 @@ public class sport {
         LinkedList<sport> lc=new LinkedList<>();
         ResultSet rs;
         String name;
+        int SPO;
         if(objbd.crearConexion()){
             try {
                 Statement st=objbd.getConexion().createStatement();
                 rs=st.executeQuery(sql);
                 while (rs.next()) {                    
                     name=rs.getString("sportType");
-                    
-                    lc.add(new sport(name));
+                    SPO =rs.getInt("idSP");
+                    lc.add(new sport(SPO, name));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(sport.class.getName()).log(Level.SEVERE, null, ex);

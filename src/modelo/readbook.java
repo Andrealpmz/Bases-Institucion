@@ -49,6 +49,10 @@ public class readbook {
     public readbook(String titleR) {
         this.titleR = titleR;
     }
+       public readbook(int idRe, String titleR) {
+        this.titleR = titleR;
+         this.idRe = idRe;
+    }
 
   
 
@@ -157,14 +161,15 @@ public class readbook {
         LinkedList<readbook> lc=new LinkedList<>();
         ResultSet rs;
         String name;
+        int idrb;
         if(objbd.crearConexion()){
             try {
                 Statement st=objbd.getConexion().createStatement();
                 rs=st.executeQuery(sql);
                 while (rs.next()) {                    
                     name=rs.getString("titleR");
-                    
-                    lc.add(new readbook(name));
+                    idrb=rs.getInt("idRe");
+                    lc.add(new readbook(idrb,name));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(readbook.class.getName()).log(Level.SEVERE, null, ex);

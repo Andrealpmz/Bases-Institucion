@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
-
+import control.ControllerStudent_Activity;
 import control.ControllerEstudiante;
 import control.ControllerGrade_Subject;
 import control.ControllerReadbook;
@@ -16,6 +16,7 @@ import modelo.grade_subject;
 import modelo.readbook;
 import modelo.sport;
 import modelo.student;
+import modelo.student_activity;
 import modelo.virtualcourse;
 
 /**
@@ -27,9 +28,16 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
+        int idvc;
+        int idRb;
+        int idSPO;
     LinkedList<sport> listas;
     LinkedList<readbook> listag;
     LinkedList<virtualcourse> listav;
+          ControllerSport objcc = new ControllerSport();
+        ControllerReadbook objgj = new ControllerReadbook();
+        ControllerVirtualCourse objvc = new ControllerVirtualCourse();
+
 
     public InterfazStudent_Activity() {
         initComponents();
@@ -80,6 +88,18 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
             }
         });
 
@@ -156,21 +176,49 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+ 
         String nombreC=String.valueOf( jComboBox3.getSelectedItem());
-        int idvc;
-        for (int i = 0; i < listav.size(); i++) {
+       String nombreSP= String.valueOf(jComboBox1.getSelectedItem());
+        String nombrerb= String.valueOf(jComboBox2.getSelectedItem());
+       //&&
+        for (int i = 0; i < listav.size() ; i++) {
             virtualcourse vc = listav.get(i);
-            if(nombreC.equals(vc.getTitleC())){
+            if(nombreC.equals(vc.getTitleC())){            
                 idvc=vc.getIdVi();
+                  
+           
+
             }
+          
+
             
         }
+                    for (int k = 0; k < listag.size(); k++) {
+                readbook Rb = listag.get(k);
+                if(nombrerb.equals(Rb.getTitleR()))
+                {
+                idRb= Rb.getIdRe();
+                }
+                
+            }
+                for (int j = 0; j < listas.size(); j++) {
+                sport SP = listas.get(j);
+                if(nombreSP.equals(SP.getSportType()))
+                {
+                idSPO=SP.getIdSP();
+                }
+        }
         
-        virtualcourse objvc = new virtualcourse();
-        ControllerVirtualCourse objcvc = new ControllerVirtualCourse();
+            
 
-        boolean t = objcvc.insertVirtualCourse(objvc);
+            
+            
+          
+        
+        student_activity objsa = new student_activity(1, idRb, idvc);
+        ControllerStudent_Activity objcsa = new ControllerStudent_Activity();
+
+        boolean t = objcsa.insertStudent_Activity(objsa);
 
         if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
@@ -181,19 +229,16 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        ControllerSport objcc = new ControllerSport();
-        ControllerReadbook objgj = new ControllerReadbook();
-        ControllerVirtualCourse objvc = new ControllerVirtualCourse();
-
-        listas = objcc.insertSport();
-        for (int i = 0; i < listas.size(); i++) {
-            sport sport = listas.get(i);
+  
+        listas = objcc.buscarSport();
+        for (int j = 0; j < listas.size(); j++) {
+            sport sport = listas.get(j);
             jComboBox1.addItem(sport.getSportType());
         }
 
-        listag = objgj.insertReadbook();
-        for (int i = 0; i < listag.size(); i++) {
-            readbook readbook = listag.get(i);
+        listag = objgj.buscarReadbook();
+        for (int k = 0; k < listag.size(); k++) {
+            readbook readbook = listag.get(k);
             jComboBox2.addItem(readbook.getTitleR());
 
         }
@@ -219,6 +264,14 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
         jComboBox2.setSelectedItem("");
         jComboBox3.setSelectedItem("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

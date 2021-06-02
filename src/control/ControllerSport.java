@@ -24,7 +24,7 @@ public class ControllerSport {
         return t;
     }
 
-    public LinkedList<sport> insertSport() {
+    public LinkedList<sport> buscarSport() {
         
         LinkedList<sport> lc=null;
         

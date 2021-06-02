@@ -25,7 +25,7 @@ public class ControllerReadbook {
         return t;
     }
 
-    public LinkedList<readbook> insertReadbook() {
+    public LinkedList<readbook> buscarReadbook() {
         
         LinkedList<readbook> lc=null;
         

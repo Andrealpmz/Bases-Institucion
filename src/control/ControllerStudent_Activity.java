@@ -17,10 +17,9 @@ import modelo.student_activity;
 public class ControllerStudent_Activity {
         public boolean insertStudent_Activity(student_activity objsa) { 
         boolean t=false;
-        String sql="insert into student_activity(dateActivity, weeklyhours, courseType, idSPfk, idRefk, idVifk, idSfk)" 
-                + " value('"+objsa.getDateActivity()+"', '"+objsa.getWeeklyhours()+"', '"+objsa.getCourseType()+"', '"+objsa.getIdSPfk()+"', "
-                + "'"+objsa.getIdRefk()+"', '"+objsa.getIdVifk()+"', '"+objsa.getIdSfk()+"');";
-        
+        String sql="insert into student_activity( idSPfk, idRefk, idVifk)" 
+                + " value('"+objsa.getIdSPfk()+"', " +"'" +objsa.getIdRefk()+"', '"+objsa.getIdVifk()+"');";
+        System.out.println(sql);
         BaseDatos objbd=new BaseDatos();
         t=objbd.ejecutarSQL(sql);
         return t;

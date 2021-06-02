@@ -46,7 +46,7 @@ public class virtualcourse {
         this.titleC = titleC;
         this.idVi=idVi;
     }
-
+    
     /**
      * Get the value of courseType
      *
