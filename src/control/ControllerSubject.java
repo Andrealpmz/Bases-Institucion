@@ -27,7 +27,7 @@ public class ControllerSubject {
     }
         
         
-     public LinkedList<subject> insertSubject() {
+     public LinkedList<subject> BuscarSubject() {
         
         LinkedList<subject> lc=null;
         

@@ -5,17 +5,13 @@
  */
 package vista;
 import control.ControllerStudent_Activity;
-import control.ControllerEstudiante;
-import control.ControllerGrade_Subject;
 import control.ControllerReadbook;
 import control.ControllerSport;
 import control.ControllerVirtualCourse;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
-import modelo.grade_subject;
 import modelo.readbook;
 import modelo.sport;
-import modelo.student;
 import modelo.student_activity;
 import modelo.virtualcourse;
 
