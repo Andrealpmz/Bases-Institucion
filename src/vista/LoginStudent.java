@@ -6,7 +6,7 @@
 package vista;
 
 import control.ControllerAdministrador;
-import control.ControllerEstudiante;
+import control.ControllerStudent;
 import control.ControllerTeacher;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,7 +35,7 @@ public class LoginStudent extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
     }
-    ControllerEstudiante metodos = new ControllerEstudiante();
+    ControllerStudent metodos = new ControllerStudent();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -163,7 +163,7 @@ public class LoginStudent extends javax.swing.JFrame {
             if (lc.get(i).getUser().equals(jTextField1.getText())) {
                 if (lc.get(i).getPass().equals(jPasswordField1.getText())) {
                     JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getUser());
-                    MenuPrincipalStudent ventana = new MenuPrincipalStudent();
+                    MenuPrincipalStudent ventana = new MenuPrincipalStudent(lc.get(i).getIdS());
                     ventana.jLabel2.setText(lc.get(i).getUser());
                     ventana.setVisible(true);
                     this.dispose();

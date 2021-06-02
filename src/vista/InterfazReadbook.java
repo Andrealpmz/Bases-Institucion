@@ -9,7 +9,7 @@ import control.ControllerAdministrador;
 import control.ControllerReadbook;
 import javax.swing.JOptionPane;
 import modelo.student;
-import control.ControllerEstudiante;
+import control.ControllerStudent;
 import modelo.readbook;
 
 /**

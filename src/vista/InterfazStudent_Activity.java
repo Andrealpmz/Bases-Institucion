@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package vista;
+
 import control.ControllerStudent_Activity;
-import control.ControllerEstudiante;
+import control.ControllerStudent;
 
 import control.ControllerReadbook;
 import control.ControllerSport;
@@ -28,20 +29,27 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
-        int idvc;
-        int idRb;
-        int idSPO;
+    private int idSfk;
+    int idvc;
+    int idRb;
+    int idSPO;
     LinkedList<sport> listas;
     LinkedList<readbook> listag;
     LinkedList<virtualcourse> listav;
-          ControllerSport objcc = new ControllerSport();
-        ControllerReadbook objgj = new ControllerReadbook();
-        ControllerVirtualCourse objvc = new ControllerVirtualCourse();
-
+    ControllerSport objcc = new ControllerSport();
+    ControllerReadbook objgj = new ControllerReadbook();
+    ControllerVirtualCourse objvc = new ControllerVirtualCourse();
+    ControllerStudent metodos = new ControllerStudent();
 
     public InterfazStudent_Activity() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    InterfazStudent_Activity(int idest) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.idSfk = idest;
     }
 
     /**
@@ -176,50 +184,38 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
-        String nombreC=String.valueOf( jComboBox3.getSelectedItem());
-       String nombreSP= String.valueOf(jComboBox1.getSelectedItem());
-        String nombrerb= String.valueOf(jComboBox2.getSelectedItem());
-       //&&
-        for (int i = 0; i < listav.size() ; i++) {
+
+        String nombreC = String.valueOf(jComboBox3.getSelectedItem());
+        String nombreSP = String.valueOf(jComboBox1.getSelectedItem());
+        String nombrerb = String.valueOf(jComboBox2.getSelectedItem());
+        //&&
+        for (int i = 0; i < listav.size(); i++) {
             virtualcourse vc = listav.get(i);
-            if(nombreC.equals(vc.getTitleC())){            
-                idvc=vc.getIdVi();
-                  
-           
+            if (nombreC.equals(vc.getTitleC())) {
+                idvc = vc.getIdVi();
 
             }
-          
 
-            
         }
-                    for (int k = 0; k < listag.size(); k++) {
-                readbook Rb = listag.get(k);
-                if(nombrerb.equals(Rb.getTitleR()))
-                {
-                idRb= Rb.getIdRe();
-                }
-                
+        for (int k = 0; k < listag.size(); k++) {
+            readbook Rb = listag.get(k);
+            if (nombrerb.equals(Rb.getTitleR())) {
+                idRb = Rb.getIdRe();
             }
-                for (int j = 0; j < listas.size(); j++) {
-                sport SP = listas.get(j);
-                if(nombreSP.equals(SP.getSportType()))
-                {
-                idSPO=SP.getIdSP();
-                }
-        }
-        
-            
 
-            
-            
-          
-        
-        student_activity objsa = new student_activity(1, idRb, idvc);
+        }
+        for (int j = 0; j < listas.size(); j++) {
+            sport SP = listas.get(j);
+            if (nombreSP.equals(SP.getSportType())) {
+                idSPO = SP.getIdSP();
+            }
+        }
+
+        student_activity objsa = new student_activity(idSPO, idRb, idvc, idSfk);
         ControllerStudent_Activity objcsa = new ControllerStudent_Activity();
 
         boolean t = objcsa.insertStudent_Activity(objsa);
-
+        System.out.println(objsa);
         if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
         } else {
@@ -229,7 +225,6 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-  
         listas = objcc.buscarSport();
         for (int j = 0; j < listas.size(); j++) {
             sport sport = listas.get(j);

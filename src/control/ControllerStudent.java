@@ -14,16 +14,16 @@ import modelo.student;
  *
  * @author ANDREA PEREZ
  */
-    public class ControllerEstudiante {
+    public class ControllerStudent {
      public boolean insertEstudiante(student objs) { 
         boolean t=false;
         
 //        String admin;
 //        admin = jComboBox1.getItemAt(jComboBox1.getSelectedIndex()).getIdAfk();
-        String sql="insert into student(name1S, lastName1S, age, gender, grade, weeklyStudyHours, socioeconomicStatus, idAfk)" 
-                + " value('"+objs.getName1S()+"', '"+objs.getLastName1S()+"', '"+objs.getAge()+"', "
+        String sql="insert into student(name1S, lastName1S,user,pass, age, gender, grade, weeklyStudyHours, socioeconomicStatus, idAfk)" 
+                + " value('"+objs.getName1S()+"', '"+objs.getLastName1S()+"', '"+objs.getUser()+"', '"+objs.getPass()+"', '"+objs.getAge()+"', "
                 + "'"+objs.getGender()+"', '"+objs.getGrade()+"', '"+objs.getWeeklyStudyHours()+"', '"+objs.getSocioeconomicStatus()+"', '"+objs.getIdAfk()+"');";
-        
+         System.out.println(sql);
         BaseDatos objbd=new BaseDatos();
         t=objbd.ejecutarSQL(sql);
         return t;
@@ -33,7 +33,7 @@ import modelo.student;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public LinkedList<student> insertEstudiante() {
+    public LinkedList<student> consultarEstudiante() {
         
                 LinkedList<student> lc=null;
         

@@ -6,6 +6,7 @@
 package vista;
 
 import control.ControllerAdministrador;
+import control.ControllerStudent;
 import java.util.LinkedList;
 import modelo.administrator;
 import java.lang.String;
@@ -17,6 +18,7 @@ import java.lang.String;
 public class MenuPrincipalStudent extends javax.swing.JFrame {
  public int id;
  public String mail;
+ public int idest;
     /**
      * Creates new form MenuPrincipal
      */
@@ -31,8 +33,15 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
         this.id = idAfk;
         this.mail = email;
     }
-   
+    ControllerStudent metodosS = new ControllerStudent();
     ControllerAdministrador metodos = new ControllerAdministrador();
+   
+
+    MenuPrincipalStudent(int idS) {
+               initComponents();
+        setLocationRelativeTo(null);
+        this.idest = idS;
+    }
 
    
 
@@ -141,7 +150,7 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
  
-        InterfazStudent_Activity ventana = new InterfazStudent_Activity();
+        InterfazStudent_Activity ventana = new InterfazStudent_Activity(idest);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

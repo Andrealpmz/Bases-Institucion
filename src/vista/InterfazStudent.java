@@ -6,7 +6,7 @@
 package vista;
 
 import control.ControllerAdministrador;
-import control.ControllerEstudiante;
+import control.ControllerStudent;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import modelo.administrator;
@@ -17,7 +17,7 @@ import modelo.student;
  * @author ANDREA PEREZ
  */
 public class InterfazStudent extends javax.swing.JFrame {
-ControllerEstudiante metodos = new ControllerEstudiante();
+ControllerStudent metodos = new ControllerStudent();
 ControllerAdministrador metodosA = new ControllerAdministrador();
 
     /**
@@ -391,9 +391,10 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
         int est = Integer.parseInt(jTextField9.getText());
 
         student objs = new student(nom, ape1, user, pass, edad, gen, cur, he, est, idAfk);
-        ControllerEstudiante objca = new ControllerEstudiante();
-
+        ControllerStudent objca = new ControllerStudent();
+        
         boolean t = objca.insertEstudiante(objs);
+        System.out.println(objs);
         if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
         } else {

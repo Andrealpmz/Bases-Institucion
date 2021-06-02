@@ -5,7 +5,7 @@
  */
 package vista;
 
-import control.ControllerEstudiante;
+import control.ControllerStudent;
 import control.ControllerGrade;
 
 import control.ControllerScore;
@@ -175,14 +175,14 @@ public class InterfazScore extends javax.swing.JFrame {
          LinkedList<student> listac = null;
         LinkedList<grade> listag = null;
 
-        ControllerEstudiante objcc = new ControllerEstudiante();
+        ControllerStudent objcc = new ControllerStudent();
         ControllerGrade objgj = new ControllerGrade();
           listag = objgj.insertGrade();
         for (int i = 0; i < listag.size(); i++) {
             grade grado = listag.get(i);
             idSfk = grado.getIdGr();
         }   
-        listac = objcc.insertEstudiante();
+        listac = objcc.consultarEstudiante();
         for (int i = 0; i < listac.size(); i++) {
             student student = listac.get(i);
             idEnfk = student.getIdS();
@@ -210,10 +210,10 @@ public class InterfazScore extends javax.swing.JFrame {
         LinkedList<student> listac = null;
         LinkedList<grade> listag = null;
 
-        ControllerEstudiante objcc = new ControllerEstudiante();
+        ControllerStudent objcc = new ControllerStudent();
         ControllerGrade objgj = new ControllerGrade();
 
-        listac = objcc.insertEstudiante();
+        listac = objcc.consultarEstudiante();
         for (int i = 0; i < listac.size(); i++) {
             student student = listac.get(i);
             jComboBox1.addItem(student.getName1S() + " " + student.getLastName1S());

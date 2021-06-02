@@ -44,12 +44,14 @@ public class student {
 
     private int idAfk;
 
-    public student(String name1S, String lastName1S) {
+    public student(String name1S, String lastName1S, String user,String pass) {
         this.name1S = name1S;
         this.lastName1S = lastName1S;
+        this.user = user;
+        this.pass = pass;
     }
 
-    public student(String name1S, String name2S, String lastName1S, String lastName2S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
+    /*public student(String name1S, String name2S, String lastName1S, String lastName2S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.name1S = name1S;
         this.name2S = name2S;
         this.lastName1S = lastName1S;
@@ -60,8 +62,8 @@ public class student {
         this.weeklyStudyHours = weeklyStudyHours;
         this.socioeconomicStatus = socioeconomicStatus;
         this.idAfk = idAfk;
-    }
-
+    }*/
+/*
     public student(String name1S, String lastName1S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.name1S = name1S;
         this.lastName1S = lastName1S;
@@ -71,18 +73,21 @@ public class student {
         this.weeklyStudyHours = weeklyStudyHours;
         this.socioeconomicStatus = socioeconomicStatus;
         this.idAfk = idAfk;
-    }
+    }*/
 
-    public student(String name1S, String lastName1S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus) {
+    public student(String name1S, String lastName1S, String user, String pass, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.name1S = name1S;
         this.lastName1S = lastName1S;
+        this.user = user;
+        this.pass = pass;
         this.age = age;
         this.gender = gender;
         this.grade = grade;
         this.weeklyStudyHours = weeklyStudyHours;
         this.socioeconomicStatus = socioeconomicStatus;
+        this.idAfk = idAfk;
     }
-
+/*
     public student(int idS, String name1S, String name2S, String lastName1S, String lastName2S, String user, String pass, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.idS = idS;
         this.name1S = name1S;
@@ -97,9 +102,7 @@ public class student {
         this.weeklyStudyHours = weeklyStudyHours;
         this.socioeconomicStatus = socioeconomicStatus;
         this.idAfk = idAfk;
-    }
-
-
+    }*/
 
     public student() {
     }
@@ -350,6 +353,8 @@ public class student {
         ResultSet rs;
         String name;
         String last;
+        String user;
+        String pass;
         if (objbd.crearConexion()) {
             try {
                 Statement st = objbd.getConexion().createStatement();
@@ -357,8 +362,9 @@ public class student {
                 while (rs.next()) {
                     name = rs.getString("name1S");
                     last = rs.getString("lastName1S");
-
-                    lc.add(new student(name, last));
+                    user = rs.getString("user");
+                    pass = rs.getString("pass");
+                    lc.add(new student(name, last, user, pass));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(student.class.getName()).log(Level.SEVERE, null, ex);
@@ -368,7 +374,5 @@ public class student {
 
         return lc;
     }
-
-
 
 }
