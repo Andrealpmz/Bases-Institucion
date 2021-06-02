@@ -42,6 +42,15 @@ public class administrator {
         this.lastNameA1 = lastNameA1;
     }
 
+    public administrator(String nameA1, String nameA2, String lastNameA1, String lastNameA2, String email, String password) {
+        this.nameA1 = nameA1;
+        this.nameA2 = nameA2;
+        this.lastNameA1 = lastNameA1;
+        this.lastNameA2 = lastNameA2;
+        this.email = email;
+        this.password = password;
+    }
+
     public administrator(String nameA1, String lastNameA1, String email, String password) {
         this.nameA1 = nameA1;
         this.lastNameA1 = lastNameA1;

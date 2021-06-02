@@ -44,6 +44,21 @@ public class student {
 
     private int idAfk;
 
+    public student(String name1S, String name2S, String lastName1S, String lastName2S, String user, String pass, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
+        this.name1S = name1S;
+        this.name2S = name2S;
+        this.lastName1S = lastName1S;
+        this.lastName2S = lastName2S;
+        this.user = user;
+        this.pass = pass;
+        this.age = age;
+        this.gender = gender;
+        this.grade = grade;
+        this.weeklyStudyHours = weeklyStudyHours;
+        this.socioeconomicStatus = socioeconomicStatus;
+        this.idAfk = idAfk;
+    }
+
     public student(String name1S, String lastName1S, String user,String pass) {
         this.name1S = name1S;
         this.lastName1S = lastName1S;

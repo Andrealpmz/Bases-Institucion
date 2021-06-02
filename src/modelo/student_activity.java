@@ -58,13 +58,13 @@ public class student_activity {
      this.idSfk=idSfk;
      }
      
-       public student_activity(int idSPfk, int idRefk, int idVifk)
-     {
-     this.idSPfk = idSPfk;
-     this.idRefk=idRefk;
-     this.idVifk=idVifk;
-    
-     }
+//       public student_activity(int idSPfk, int idRefk, int idVifk)
+//     {
+//     this.idSPfk = idSPfk;
+//     this.idRefk=idRefk;
+//     this.idVifk=idVifk;
+//    
+//     }
     /**
      * Get the value of idSfk
      *

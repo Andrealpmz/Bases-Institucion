@@ -162,9 +162,9 @@ public class LoginStudent extends javax.swing.JFrame {
             System.out.println(lc.get(i).getUser());
             if (lc.get(i).getUser().equals(jTextField1.getText())) {
                 if (lc.get(i).getPass().equals(jPasswordField1.getText())) {
-                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getUser());
+                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getName1S()+" "+lc.get(i).getLastName1S());
                     MenuPrincipalStudent ventana = new MenuPrincipalStudent(lc.get(i).getIdS());
-                    ventana.jLabel2.setText(lc.get(i).getUser()+", "+lc.get(i).getIdS());
+                    ventana.jLabel2.setText(lc.get(i).getName1S()+" "+lc.get(i).getLastName1S());
                     ventana.setVisible(true);
                     this.dispose();
                     break;

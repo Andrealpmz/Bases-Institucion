@@ -17,8 +17,8 @@ public class ControllerAdministrador {
 
     public boolean insertAdmin(administrator obja) { 
         boolean t=false;
-        String sql="insert into administrator(nameA1, lastNameA1, email, password)" 
-                + " value('"+obja.getNameA1()+"', '"+obja.getLastNameA1()+"', '"+obja.getEmail()+"', "
+        String sql="insert into administrator(nameA1, nameA2, lastNameA1, lastNameA2, email, password)" 
+                + " value('"+obja.getNameA1()+"', '"+obja.getNameA2()+"', '"+obja.getLastNameA1()+"', '"+obja.getLastNameA2()+"', '"+obja.getEmail()+"', "
                 + "'"+obja.getPassword()+"');";
         
         BaseDatos objbd=new BaseDatos();

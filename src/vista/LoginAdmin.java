@@ -152,16 +152,15 @@ public class LoginAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-// Yo sin haber hecho nada: ez pz xd
        LinkedList<administrator> lc = metodos.BuscarAdministratorRegistrado();
         for (int i = 0; i < lc.size(); i++) {
             System.out.println(lc.get(i).getEmail());
             if (lc.get(i).getEmail().equals(jTextField1.getText())) {
                 if (lc.get(i).getPassword().equals(jPasswordField1.getText())) {
                    
-                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getEmail());
+                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getNameA1()+ " "+ lc.get(i).getLastNameA1());
                     MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(lc.get(i).getIdA(), lc.get(i).getEmail());
-                    ventana.jLabel2.setText(lc.get(i).getEmail() + lc.get(i));
+                    ventana.jLabel2.setText(lc.get(i).getNameA1()+" "+ lc.get(i).getLastNameA1());
                     ventana.setVisible(true);
                     this.dispose();
                     break;
