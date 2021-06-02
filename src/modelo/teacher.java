@@ -292,8 +292,8 @@ public class teacher {
                 while (rs.next()) {
                     name = rs.getString("nameT1");
                     name2 = rs.getString("nameT2");
-                    last = rs.getString("lastNameT2");
-                    last2 = rs.getString("lastNameT1");
+                    last = rs.getString("lastNameT1");
+                    last2 = rs.getString("lastNameT2");
                     mail = rs.getString("email");
                     password = rs.getString("passwordT");
                     idSu = rs.getInt("idSufk");
