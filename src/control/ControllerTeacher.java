@@ -26,8 +26,8 @@ public class ControllerTeacher implements ActionListener{
 
 public boolean insertTeacher(teacher objr) {
         boolean t = false;
-        String  sql = "insert into teacher(nameT1, lastNameT1, email, idAfk, passwordT, idSufk)" 
-                + " value('"+objr.getNameT1()+"', '"+objr.getLastNameT1()+"', '"+objr.getEmail()+"', "
+        String  sql = "insert into teacher(nameT1, nameT2, lastNameT1, lastNameT2, email, idAfk, passwordT, idSufk)" 
+                + " value('"+objr.getNameT1()+"', '"+objr.getNameT2()+"', '"+objr.getLastNameT1()+"', '"+objr.getLastNameT2()+"' '"+objr.getEmail()+"', "
                 + "'"+objr.getIdAfk()+"', '"+ objr.getPasswordT()+"', '"+objr.getIdSufk()+"');";
         System.out.println(sql);
         BaseDatos objbd = new BaseDatos();
@@ -49,7 +49,7 @@ public boolean insertTeacher(teacher objr) {
         
         LinkedList<teacher> lc=null;
         
-        String sql="SELECT idT, nameT1, lastNameT1, email,passwordT  FROM teacher ";
+        String sql="SELECT idT, nameT1, lastNameT1, email,passwordT, idSufk FROM teacher ";
               //  + "WHERE email = '"+email+"' && passwordT = '"+passwordT+"'";
         teacher objc=new teacher();
         

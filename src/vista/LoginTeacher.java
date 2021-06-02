@@ -160,9 +160,9 @@ public class LoginTeacher extends javax.swing.JFrame {
             System.out.println(lc.get(i).getEmail());
             if (lc.get(i).getEmail().equals(jTextField1.getText())) {
                 if (lc.get(i).getPasswordT().equals(jPasswordField1.getText())) {
-                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getEmail());
+                    JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getNameT1() + " " + lc.get(i).getLastNameT1());
                     MenuPrincipalTeacher ventana = new MenuPrincipalTeacher();
-                    ventana.jLabel2.setText(lc.get(i).getEmail());
+                    ventana.jLabel2.setText(lc.get(i).getNameT1() + " " + lc.get(i).getLastNameT1());
                     ventana.setVisible(true);
                     this.dispose();
                     break;

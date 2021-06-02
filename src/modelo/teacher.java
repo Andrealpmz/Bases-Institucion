@@ -33,11 +33,11 @@ public class teacher {
     private String lastNameT2;
 
     private String email;
-    
+
     private String passwordT;
 
     private int idAfk;
-    
+
     private int idSufk;
 
     public teacher() {
@@ -59,9 +59,21 @@ public class teacher {
         this.email = email;
         this.idAfk = idAfk;
         this.passwordT = passwordT;
-        
+
     }
-        public teacher(String nameT1, String lastNameT1, String email, int idAfk, String passwordT,int idSufk) {
+
+    public teacher(String nameT1, String nameT2, String lastNameT1, String lastNameT2, String email, String passwordT, int idAfk, int idSufk) {
+        this.nameT1 = nameT1;
+        this.nameT2 = nameT2;
+        this.lastNameT1 = lastNameT1;
+        this.lastNameT2 = lastNameT2;
+        this.email = email;
+        this.passwordT = passwordT;
+        this.idAfk = idAfk;
+        this.idSufk = idSufk;
+    }
+
+    public teacher(String nameT1, String lastNameT1, String email, int idAfk, String passwordT, int idSufk) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
@@ -69,7 +81,8 @@ public class teacher {
         this.passwordT = passwordT;
         this.idSufk = idSufk;
     }
-             public teacher(int idT,String nameT1, String lastNameT1, String email, String passwordT,int idSufk) {
+
+    public teacher(int idT, String nameT1, String lastNameT1, String email, String passwordT, int idSufk) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
@@ -78,11 +91,24 @@ public class teacher {
         this.idSufk = idSufk;
         this.idT = idT;
     }
-     public teacher(String nameT1, String lastNameT1, String email , int idAfk) {
+
+    public teacher(String nameT1, String lastNameT1, String email, int idAfk) {
         this.nameT1 = nameT1;
         this.lastNameT1 = lastNameT1;
         this.email = email;
         this.idAfk = idAfk;
+    }
+
+    public teacher(int idT, String nameT1, String nameT2, String lastNameT1, String lastNameT2, String email, String passwordT, int idAfk, int idSufk) {
+        this.idT = idT;
+        this.nameT1 = nameT1;
+        this.nameT2 = nameT2;
+        this.lastNameT1 = lastNameT1;
+        this.lastNameT2 = lastNameT2;
+        this.email = email;
+        this.passwordT = passwordT;
+        this.idAfk = idAfk;
+        this.idSufk = idSufk;
     }
 
     public teacher(String nameT1, String lastNameT1, String email) {
@@ -103,8 +129,6 @@ public class teacher {
         this.passwordT = passwordT;
     }
 
-
-
     /**
      * Get the value of idAfk
      *
@@ -122,11 +146,12 @@ public class teacher {
     public void setIdAfk(int idAfk) {
         this.idAfk = idAfk;
     }
-    public int getIdSufk()
-    {
-    return idSufk;
+
+    public int getIdSufk() {
+        return idSufk;
     }
-     public void setIdSufk(int idSufk) {
+
+    public void setIdSufk(int idSufk) {
         this.idSufk = idSufk;
     }
 
@@ -245,10 +270,6 @@ public class teacher {
     public void setIdT(int idT) {
         this.idT = idT;
     }
-    
-   
-
- 
 
     public LinkedList<teacher> consultarTeacher(String sql) {
 
@@ -256,10 +277,12 @@ public class teacher {
         LinkedList<teacher> lc = new LinkedList<>();
         ResultSet rs;
         String name;
+        String name2;
         String last;
+        String last2;
         String password;
         String mail;
-       int idTe;
+        int idTe;
         int idSu;
 
         if (objbd.crearConexion()) {
@@ -268,16 +291,18 @@ public class teacher {
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
                     name = rs.getString("nameT1");
-                    last = rs.getString("lastNameT1");             
+                    name2 = rs.getString("nameT2");
+                    last = rs.getString("lastNameT2");
+                    last2 = rs.getString("lastNameT1");
                     mail = rs.getString("email");
                     password = rs.getString("passwordT");
-                    idSu =rs.getInt("idSufk");
+                    idSu = rs.getInt("idSufk");
                     idTe = rs.getInt("idT");
-                    lc.add(new teacher(idTe,name, last, mail, password, idSu));
+                    lc.add(new teacher(name, name2, last, last2, mail, password, idSu, idTe));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(teacher.class.getName()).log(Level.SEVERE, null, ex);
-                
+
             }
 
         }
