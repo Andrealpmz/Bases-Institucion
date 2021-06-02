@@ -17,8 +17,13 @@ import modelo.student;
  * @author ANDREA PEREZ
  */
 public class InterfazStudent extends javax.swing.JFrame {
-ControllerStudent metodos = new ControllerStudent();
-ControllerAdministrador metodosA = new ControllerAdministrador();
+
+    ControllerStudent metodos = new ControllerStudent();
+    ControllerAdministrador metodosA = new ControllerAdministrador();
+
+   
+
+  
 
 //    public String name1;
 //    public String lastname1;
@@ -35,14 +40,34 @@ ControllerAdministrador metodosA = new ControllerAdministrador();
             jButton1.setEnabled(false);
         }
     }
+    private int idAfk;
     public String mail;
     public int idAdmin;
+    public String nameA;
+    private String LastnameA1;
     
-LinkedList<student> lc = metodos.BuscarEstudianteRegistrado();
-LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
+
+    LinkedList<student> lc = metodos.BuscarEstudianteRegistrado();
+    LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
+
     public InterfazStudent() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+      InterfazStudent(int id, String nombre) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.nameA = nombre;
+        this.idAfk = id;
+      
+    }
+      InterfazStudent(int id, String nombre, String apellido) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.nameA = nombre;
+        this.idAfk = id;
+        this.LastnameA1 = apellido;
+      
     }
 //    }
 //public InterfazStudent(String name1S, String lastName1S) {
@@ -52,14 +77,11 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
 //        this.lastname1 = lastName1S;
 //    }
 
-    public InterfazStudent(int id,String mail ) {
-        initComponents();
-        setLocationRelativeTo(null);
-        this.idAfk = id;
-        this.email = mail;
-    }
-    private int idAfk;
-    private String email;
+ 
+  
+    
+   
+
     public void setIdAdmin(int id) {
         idAdmin = id;
     }
@@ -392,7 +414,7 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+
         String nom = jTextField1.getText();
         String nom2 = jTextField2.getText();
         String apel = jTextField1.getText();
@@ -407,7 +429,7 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
 
         student objs = new student(nom, nom2, apel, ape2, user, pass, edad, gen, cur, he, est, idAfk);
         ControllerStudent objca = new ControllerStudent();
-        
+
         boolean t = objca.insertEstudiante(objs);
         System.out.println(objs);
         if (t) {
@@ -427,11 +449,10 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
-        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk,email);
-        
-        ventana.jLabel2.setText("" + email);
+
+        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk, nameA);
         ventana.setVisible(true);
+        ventana.jLabel2.setText(""+ nameA );
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -453,15 +474,15 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
     }//GEN-LAST:event_jTextField6KeyReleased
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
-         habilitarBoton();
+        habilitarBoton();
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
-         habilitarBoton();
+        habilitarBoton();
     }//GEN-LAST:event_jTextField5KeyReleased
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
-       
+
     }//GEN-LAST:event_jTextField2KeyReleased
 
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
@@ -477,7 +498,7 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
     }//GEN-LAST:event_jTextField8KeyReleased
 
     private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
-    
+
     }//GEN-LAST:event_jTextField4KeyReleased
 
     private void jTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyReleased
@@ -485,7 +506,7 @@ LinkedList<administrator> la = metodosA.BuscarAdministratorRegistrado();
     }//GEN-LAST:event_jTextField9KeyReleased
 
     private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
-          habilitarBoton();
+        habilitarBoton();
     }//GEN-LAST:event_jTextField10KeyReleased
 
     private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
