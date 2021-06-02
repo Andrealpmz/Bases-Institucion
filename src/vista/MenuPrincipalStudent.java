@@ -16,7 +16,7 @@ import java.lang.String;
  * @author ANDREA PEREZ
  */
 public class MenuPrincipalStudent extends javax.swing.JFrame {
- public int id;
+ //public int id;
  public String mail;
  public int idest;
     /**
@@ -26,21 +26,21 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+/*
     public MenuPrincipalStudent(int idAfk, String email) {
         initComponents();
         setLocationRelativeTo(null);
         this.id = idAfk;
         this.mail = email;
-    }
+    }*/
     ControllerStudent metodosS = new ControllerStudent();
     ControllerAdministrador metodos = new ControllerAdministrador();
    
 
-    MenuPrincipalStudent(int idS) {
+    MenuPrincipalStudent(int idSfk) {
                initComponents();
         setLocationRelativeTo(null);
-        this.idest = idS;
+        this.idest = idSfk;
     }
 
    
@@ -126,14 +126,14 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)))
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)

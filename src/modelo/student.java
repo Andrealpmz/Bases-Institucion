@@ -50,6 +50,15 @@ public class student {
         this.user = user;
         this.pass = pass;
     }
+     public student(int idS,String name1S, String lastName1S, String user,String pass) {
+        this.name1S = name1S;
+        this.lastName1S = lastName1S;
+        this.user = user;
+        this.pass = pass;
+        this.idS=idS;
+    }
+       public student(int idSfk){
+       this.idS=idSfk;}
 
     /*public student(String name1S, String name2S, String lastName1S, String lastName2S, String age, String gender, String grade, double weeklyStudyHours, int socioeconomicStatus, int idAfk) {
         this.name1S = name1S;
@@ -355,6 +364,7 @@ public class student {
         String last;
         String user;
         String pass;
+        int id;
         if (objbd.crearConexion()) {
             try {
                 Statement st = objbd.getConexion().createStatement();
@@ -364,7 +374,9 @@ public class student {
                     last = rs.getString("lastName1S");
                     user = rs.getString("user");
                     pass = rs.getString("pass");
-                    lc.add(new student(name, last, user, pass));
+                    id = rs.getInt("idS");
+                    
+                    lc.add(new student(id, name, last, user, pass));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(student.class.getName()).log(Level.SEVERE, null, ex);

@@ -29,10 +29,7 @@ import modelo.student;
         return t;
     }
 
-    public student buscarEstudiante(int ide) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     public LinkedList<student> consultarEstudiante() {
         
                 LinkedList<student> lc=null;

@@ -29,7 +29,7 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
-    private int idSfk;
+     private int idSfk;
     int idvc;
     int idRb;
     int idSPO;
