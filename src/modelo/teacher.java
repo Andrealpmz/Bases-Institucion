@@ -37,6 +37,8 @@ public class teacher {
     private String passwordT;
 
     private int idAfk;
+    
+    private int idSufk;
 
     public teacher() {
     }
@@ -58,6 +60,23 @@ public class teacher {
         this.idAfk = idAfk;
         this.passwordT = passwordT;
         
+    }
+        public teacher(String nameT1, String lastNameT1, String email, int idAfk, String passwordT,int idSufk) {
+        this.nameT1 = nameT1;
+        this.lastNameT1 = lastNameT1;
+        this.email = email;
+        this.idAfk = idAfk;
+        this.passwordT = passwordT;
+        this.idSufk = idSufk;
+    }
+             public teacher(int idT,String nameT1, String lastNameT1, String email, String passwordT,int idSufk) {
+        this.nameT1 = nameT1;
+        this.lastNameT1 = lastNameT1;
+        this.email = email;
+        this.idAfk = idAfk;
+        this.passwordT = passwordT;
+        this.idSufk = idSufk;
+        this.idT = idT;
     }
      public teacher(String nameT1, String lastNameT1, String email , int idAfk) {
         this.nameT1 = nameT1;
@@ -102,6 +121,13 @@ public class teacher {
      */
     public void setIdAfk(int idAfk) {
         this.idAfk = idAfk;
+    }
+    public int getIdSufk()
+    {
+    return idSufk;
+    }
+     public void setIdSufk(int idSufk) {
+        this.idSufk = idSufk;
     }
 
     /**
@@ -233,8 +259,8 @@ public class teacher {
         String last;
         String password;
         String mail;
-       
-        int idT;
+       int idTe;
+        int idSu;
 
         if (objbd.crearConexion()) {
             try {
@@ -245,7 +271,9 @@ public class teacher {
                     last = rs.getString("lastNameT1");             
                     mail = rs.getString("email");
                     password = rs.getString("passwordT");
-                    lc.add(new teacher( name, last, mail, password));
+                    idSu =rs.getInt("idSufk");
+                    idTe = rs.getInt("idT");
+                    lc.add(new teacher(idTe,name, last, mail, password, idSu));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(teacher.class.getName()).log(Level.SEVERE, null, ex);

@@ -26,9 +26,9 @@ public class ControllerTeacher implements ActionListener{
 
 public boolean insertTeacher(teacher objr) {
         boolean t = false;
-        String  sql = "insert into teacher(nameT1, lastNameT1, email, idAfk, passwordT)" 
+        String  sql = "insert into teacher(nameT1, lastNameT1, email, idAfk, passwordT, idSufk)" 
                 + " value('"+objr.getNameT1()+"', '"+objr.getLastNameT1()+"', '"+objr.getEmail()+"', "
-                + "'"+objr.getIdAfk()+"', '"+ objr.getPasswordT()+"');";
+                + "'"+objr.getIdAfk()+"', '"+ objr.getPasswordT()+"', '"+objr.getIdSufk()+"');";
         System.out.println(sql);
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql);

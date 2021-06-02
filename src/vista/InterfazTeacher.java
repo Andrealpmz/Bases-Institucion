@@ -53,8 +53,8 @@ public class InterfazTeacher extends javax.swing.JFrame {
         idA = id;
     }
     ControllerSubject objcc = new ControllerSubject();
-    LinkedList<subject> listas;
-            int idSu;
+    LinkedList<subject> listaSu;
+            int idSufk;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -174,6 +174,12 @@ public class InterfazTeacher extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -271,18 +277,18 @@ public class InterfazTeacher extends javax.swing.JFrame {
         String pass = jPasswordField1.getText();
         String nameSu = String.valueOf(jComboBox1.getSelectedItem());
 
-        for (int i = 0; i < listas.size(); i++) {
-            subject vc = listas.get(i);
-            if (nameSu.equals(vc.getIdSu())) {
-             idSu = vc.getIdSu();   
+        for (int i = 0; i < listaSu.size(); i++) {
+            subject vc = listaSu.get(i);
+            if (nameSu.equals(vc.getNameSu())) {
+             idSufk = vc.getIdSu();   
             }
             
                          
                 
 
             }
-            System.out.println(nom + "," + ape + "," + cor + "," + idAfk + "," + pass);
-            teacher objr = new teacher(nom, ape, cor, idAfk, pass);
+            System.out.println(nom + "," + ape + "," + cor + "," + idAfk + "," + pass+","+idSufk);
+            teacher objr = new teacher(nom, ape, cor, idAfk, pass, idSufk);
             ControllerTeacher objcr = new ControllerTeacher();
 
             boolean t = objcr.insertTeacher(objr);
@@ -336,12 +342,16 @@ public class InterfazTeacher extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
-        listas = objcc.BuscarSubject();
-        for (int j = 0; j < listas.size(); j++) {
-            subject subject = listas.get(j);
+        listaSu = objcc.BuscarSubject();
+        for (int j = 0; j < listaSu.size(); j++) {
+            subject subject = listaSu.get(j);
             jComboBox1.addItem(subject.getNameSu());
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments

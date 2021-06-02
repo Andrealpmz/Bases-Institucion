@@ -80,15 +80,16 @@ public class subject {
         BaseDatos objbd = new BaseDatos();
         LinkedList<subject> lc = new LinkedList<>();
         ResultSet rs;
-        String nam;
+        String name;
+        int sub;
         if (objbd.crearConexion()) {
             try {
                 Statement st = objbd.getConexion().createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    nam = rs.getString("nameSu");
-
-                    lc.add(new subject(nam));
+                    name = rs.getString("nameSu");
+                    sub = rs.getInt("idSu");
+                    lc.add(new subject(sub, name));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(subject.class.getName()).log(Level.SEVERE, null, ex);
