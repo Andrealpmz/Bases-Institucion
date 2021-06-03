@@ -174,7 +174,7 @@ public class InterfazScore extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+//epa
         String nombreTo = String.valueOf(jComboBox1.getSelectedItem());
         //ControllerStudent objcc = new ControllerStudent();
         topic = jTextField2.getText();
