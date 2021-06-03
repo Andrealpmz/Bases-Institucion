@@ -249,8 +249,8 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-      
-        MenuPrincipalStudent ventana = new MenuPrincipalStudent();
+        JOptionPane.showMessageDialog(null, "La matricula del estudiante ...  fue satisfactoria");
+        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
         ventana.setVisible(true);
         this.dispose();
 
