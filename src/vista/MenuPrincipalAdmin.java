@@ -18,7 +18,8 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
 
     public int id;
     public String mail;
-
+    public String nombre;
+    public String apellido;
 
 
     /**
@@ -29,14 +30,35 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    public MenuPrincipalAdmin(int idAfk, String email) {
+    public MenuPrincipalAdmin(int idAfk, String nameA1) {
         initComponents();
         setLocationRelativeTo(null);
         this.id = idAfk;
-        this.mail = email;
+        this.nombre = nameA1;
     }
+    
+   
 
     ControllerAdministrador metodos = new ControllerAdministrador();
+
+    MenuPrincipalAdmin(int idAfk, String email, String nameA1, String lastNameA1) {
+         this.id = idAfk;
+        this.mail = email;
+        this.nombre = nameA1;
+        this.apellido = lastNameA1;
+        
+    }
+      MenuPrincipalAdmin(String nameA1, String lastNameA1) {
+        this.nombre = nameA1;
+        this.apellido = lastNameA1;
+        
+    }
+       MenuPrincipalAdmin(int idAfk, String nameA1, String lastNameA1) {
+         this.id = idAfk;
+        this.nombre = nameA1;
+        this.apellido = lastNameA1;
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,10 +191,12 @@ public class MenuPrincipalAdmin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
 //        LinkedList<administrator> lc=metodos.BuscarAdministratorRegistrado( email,  password);
-        System.out.println("ventana login: " + id);
-        InterfazStudent ventana = new InterfazStudent(id, mail);
+        
+        InterfazStudent ventana = new InterfazStudent(id, nombre);
+        
 //        ventana.jLabel12.setText(lc.getFirst().getEmail());
 //        ventana.jLabel12.setText(lc.getFirst().getEmail());
+      
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

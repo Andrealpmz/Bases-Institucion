@@ -29,6 +29,7 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
     /**
      * Creates new form InterfazAdmin
      */
+    public String nameA1;
      private int idSfk;
     int idvc;
     int idRb;
@@ -50,6 +51,14 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.idSfk = idest;
+    }
+
+    InterfazStudent_Activity(int idest, String nombre) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.idSfk = idest;
+        this.nameA1 = nombre;
+        
     }
 
     /**
@@ -249,8 +258,7 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-
-        MenuPrincipalStudent ventana = new MenuPrincipalStudent();
+        MenuPrincipalStudent ventana = new MenuPrincipalStudent(idSfk, nameA1);
         ventana.setVisible(true);
         this.dispose();
 

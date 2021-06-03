@@ -19,6 +19,7 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
  //public int id;
  public String mail;
  public int idest;
+ public String nombre;
     /**
      * Creates new form MenuPrincipal
      */
@@ -41,6 +42,11 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
                initComponents();
         setLocationRelativeTo(null);
         this.idest = idSfk;
+    }
+
+    MenuPrincipalStudent(int idSfk, String name1S) {
+        this.idest = idSfk;
+        this.nombre = name1S;
     }
 
    
@@ -138,7 +144,7 @@ public class MenuPrincipalStudent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
  
-        InterfazStudent_Activity ventana = new InterfazStudent_Activity(idest);
+        InterfazStudent_Activity ventana = new InterfazStudent_Activity(idest, nombre);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
