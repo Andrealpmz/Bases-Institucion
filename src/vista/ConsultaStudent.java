@@ -125,9 +125,7 @@ public class ConsultaStudent extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        FiltarDocentes ventana = new FiltarDocentes();
-        ventana.setVisible(true);
-        this.dispose();
+      
 
     }//GEN-LAST:event_jButton4ActionPerformed
 

@@ -107,7 +107,7 @@ public class ConsultaTeacher extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
+        MenuPrincipalTeacher ventana = new MenuPrincipalTeacher();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
