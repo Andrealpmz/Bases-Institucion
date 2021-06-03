@@ -74,6 +74,7 @@ public class student {
     }
        public student(int idSfk){
        this.idS=idSfk;}
+       
        public student(int idSfk, String name1S){    
        this.idS=idSfk;
        this.name1S = name1S;

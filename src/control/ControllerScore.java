@@ -13,15 +13,15 @@ import modelo.score;
  * @author ANDREA PEREZ
  */
 public class ControllerScore {
-     public boolean insertScore(score objs) { 
-        boolean t=false;
-        String sql="insert into score(score, idSfk, idEnfk)" 
-                + " value('"+objs.getScore()+" "+objs.getIdSfk()+" "+objs.getIdEnfk()+"');";
-        
-        
-        
-        BaseDatos objbd=new BaseDatos();
-        t=objbd.ejecutarSQL(sql);
+
+    public boolean insertScore(score objs) {
+        boolean t = false;
+        String sql = "insert into score(score, idSfk, idTfk,topic )"
+                + " value('" + objs.getScore()+ " ', '" + objs.getIdSfk() + "', ' " + objs.getIdTfk()+ "', '" + objs.getTopic()+ "');";
+        System.out.println(sql);
+
+        BaseDatos objbd = new BaseDatos();
+        t = objbd.ejecutarSQL(sql);
         return t;
     }
 }

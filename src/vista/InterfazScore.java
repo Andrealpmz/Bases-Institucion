@@ -10,7 +10,6 @@ import control.ControllerScore;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
-
 import modelo.score;
 import modelo.student;
 
@@ -23,8 +22,13 @@ public class InterfazScore extends javax.swing.JFrame {
     /**
      * Creates new form InterfazGrade
      */
-     private int idSfk;
-     private int idEnfk;
+    String topic;
+    LinkedList<student> listac;
+
+    private int idSfk;
+    private int idEnfk;
+    private int idTfk;
+
     public InterfazScore() {
         initComponents();
         setLocationRelativeTo(null);
@@ -99,6 +103,12 @@ public class InterfazScore extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Tema a calificar");
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,22 +175,22 @@ public class InterfazScore extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-         LinkedList<student> listac = null;
-
-        ControllerStudent objcc = new ControllerStudent();
-        
-        listac = objcc.consultarEstudiante();
+        String nombreTo = String.valueOf(jComboBox1.getSelectedItem());
+        //ControllerStudent objcc = new ControllerStudent();
+        topic = jTextField2.getText();
+         double score = Double.parseDouble(jTextField1.getText());
+        //listac = objcc.consultarEstudiante();
         for (int i = 0; i < listac.size(); i++) {
-            student student = listac.get(i);
-            idEnfk = student.getIdS();
+            student stu = listac.get(i);
+            if (nombreTo.equals(stu.getName1S())) {
+                idSfk = stu.getIdS();
+            }
         }
-        double nota = Double.parseDouble(jTextField1.getText());
-
-        score objs = new score(nota, idSfk, idEnfk);
-
+       
+        score objs = new score(score, idSfk, topic, 43);
         ControllerScore objca = new ControllerScore();
-
         boolean t = objca.insertScore(objs);
+        System.out.println(objs);
 
         if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó con éxito");
@@ -194,31 +204,34 @@ public class InterfazScore extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        LinkedList<student> listac = null;
 
         ControllerStudent objcc = new ControllerStudent();
 
         listac = objcc.consultarEstudiante();
         for (int i = 0; i < listac.size(); i++) {
             student student = listac.get(i);
-            jComboBox1.addItem(student.getName1S() + " " + student.getLastName1S());
+            jComboBox1.addItem(student.getName1S());
         }
 
-      
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            MenuPrincipalTeacher ventana = new MenuPrincipalTeacher();
-            ventana.setVisible(true);
-            this.dispose();
+        MenuPrincipalTeacher ventana = new MenuPrincipalTeacher();
+        ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       jComboBox1.setSelectedIndex(0);
-       jTextField1.setText("");
-       
-  
+        jComboBox1.setSelectedIndex(0);
+        jTextField1.setText("");
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
