@@ -338,8 +338,7 @@ public class InterfazTeacher extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(idAfk, email);
-        ventana.jLabel2.setText(" " + getName());
+        MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

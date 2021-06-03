@@ -159,8 +159,7 @@ public class LoginAdmin extends javax.swing.JFrame {
                 if (lc.get(i).getPassword().equals(jPasswordField1.getText())) {
                    
                     JOptionPane.showMessageDialog(this, "Bienvenido (a) " + lc.get(i).getNameA1()+ " "+ lc.get(i).getLastNameA1());
-                    MenuPrincipalAdmin ventana = new MenuPrincipalAdmin(lc.get(i).getIdA(), lc.get(i).getEmail());
-                    ventana.jLabel2.setText(lc.get(i).getNameA1()+" "+ lc.get(i).getLastNameA1());
+                    MenuPrincipalAdmin ventana = new MenuPrincipalAdmin();
                     ventana.setVisible(true);
                     this.dispose();
                     break;
