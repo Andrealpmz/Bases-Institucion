@@ -258,7 +258,7 @@ public class InterfazStudent_Activity extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        MenuPrincipalStudent ventana = new MenuPrincipalStudent(idSfk, nameA1);
+        MenuPrincipalStudent ventana = new MenuPrincipalStudent();
         ventana.setVisible(true);
         this.dispose();
 
